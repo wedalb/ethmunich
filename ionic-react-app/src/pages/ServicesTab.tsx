@@ -39,8 +39,7 @@ const ServicesTab: React.FC = () => {
   return (
     <IonPage>
       <IonContent fullscreen>
-            <MyMap/>
-          <IonRow>
+          <IonRow> {/* Lottie Animation*/}
               <IonCard>
                   <IonCardContent>
                       <IonRow className="lottie-card">
@@ -57,11 +56,23 @@ const ServicesTab: React.FC = () => {
                   </IonCardContent>
               </IonCard>
           </IonRow>
-          <div className="card-list-container">
+
+          <IonRow>
+              <IonCol>
+                  <IonRow>
+
+                  </IonRow>
+              </IonCol>
+              <IonRow className="map-container">
+                  <MyMap/>
+              </IonRow>
+          </IonRow>
+
+          <IonRow className="card-list-container">
               {items.map((item, index) => (
                   <CardComponent key={index} title={item.title} subtitle={item.subtitle} description={"Test"} number={"+0.025ETH"} />
               ))}
-          </div>
+          </IonRow>
       </IonContent>
     </IonPage>
   );
