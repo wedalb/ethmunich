@@ -36,7 +36,11 @@ import {
   IonToast,
 } from '@ionic/react';
 
-const AddTab: React.FC = () => {
+export interface AddTabProps {
+  handleSubmit: (title: string, description: string, price: string) => void;
+}
+
+const AddTab = (props: AddTabProps) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
@@ -81,7 +85,7 @@ const AddTab: React.FC = () => {
             onIonChange={(e) => setPrice(e.detail.value!)}
           />
         </IonItem>
-        <IonButton expand="full" onClick={handleSubmit}>
+        <IonButton expand="full" onClick={() => props.handleSubmit(title, description, price)}>
           Submit
         </IonButton>
       </IonContent>
