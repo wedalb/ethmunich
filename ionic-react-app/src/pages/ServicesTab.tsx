@@ -1,8 +1,20 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import {
+    IonCard,
+    IonCardContent,
+    IonCol,
+    IonContent,
+    IonHeader,
+    IonPage,
+    IonRow,
+    IonTitle,
+    IonToolbar
+} from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import CardComponent from '../components/CardComponent';
 import './ServicesTab.css';
 import MyMap from "../components/MapsView";
+import communityLottie from "../assets/lotties/communityLottie.json";
+import Lottie from "lottie-react";
 
 
 const items = {
@@ -26,19 +38,25 @@ const ServicesTab: React.FC = () => {
 
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Tab 1</IonTitle>
-        </IonToolbar>
-      </IonHeader>
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Services</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-          <MyMap/>
-        <ExploreContainer name="" />
+            <MyMap/>
+          <IonRow>
+              <IonCard>
+                  <IonCardContent>
+                      <IonRow className="lottie-card">
+                          {/* Column for the Lottie animation */}
+                          <IonCol size="6">
+                              <Lottie className="lottie-animation" animationData={communityLottie} />
+                          </IonCol>
+
+                          {/* Column for the text */}
+                          <IonCol className="text-container">
+                              <p className="centered-text">Get help in your community</p>
+                          </IonCol>
+                      </IonRow>
+                  </IonCardContent>
+              </IonCard>
+          </IonRow>
           <div className="card-list-container">
               {items.map((item, index) => (
                   <CardComponent key={index} title={item.title} subtitle={item.subtitle} description={"Test"} number={"+0.025ETH"} />
