@@ -6,7 +6,7 @@ import './ExampleCard.css';
 
 const ExampleCard: React.FC = () => {
     return (
-        <IonCard style={{ background: COLOR_PALETTE.VIOLET.GRADIENT }}>
+        <IonCard className="wallet-card">
             <IonCardHeader>
                 <IonCardSubtitle>Your Wallet</IonCardSubtitle>
                 <IonCardTitle>345 Points</IonCardTitle>

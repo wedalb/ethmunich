@@ -5,7 +5,7 @@ import {
     IonContent,
     IonHeader,
     IonPage,
-    IonRow,
+    IonRow, IonText,
     IonTitle,
     IonToolbar
 } from '@ionic/react';
@@ -15,6 +15,7 @@ import './ServicesTab.css';
 import MyMap from "../components/MapsView";
 import communityLottie from "../assets/lotties/communityLottie.json";
 import Lottie from "lottie-react";
+import React from "react";
 
 
 const items = {
@@ -40,17 +41,17 @@ const ServicesTab: React.FC = () => {
     <IonPage>
       <IonContent fullscreen>
           <IonRow> {/* Lottie Animation*/}
-              <IonCard>
+              <IonCard className="lottie-card">
                   <IonCardContent>
-                      <IonRow className="lottie-card">
+                      <IonRow >
                           {/* Column for the Lottie animation */}
                           <IonCol size="6">
                               <Lottie className="lottie-animation" animationData={communityLottie} />
                           </IonCol>
 
                           {/* Column for the text */}
-                          <IonCol className="text-container">
-                              <p className="centered-text">Get help in your community</p>
+                          <IonCol className="lottie-text-container">
+                              <IonText className="centered-text">Get help in your community</IonText>
                           </IonCol>
                       </IonRow>
                   </IonCardContent>

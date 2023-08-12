@@ -65,3 +65,7 @@ ion-card-subtitle {
     display: flex;
     justify-content: flex-end; /* Align content to the right */
 }
+
+.wallet-card{
+    border-radius: 15px;
+}

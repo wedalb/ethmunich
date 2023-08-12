@@ -10,20 +10,22 @@
 }
 
 .lottie-card{
-
+    border-radius: 15px;
 }
 
-.text-container {
+.lottie-text-container {
     display: flex;
     align-items: center; /* Vertically center the text */
     justify-content: center; /* Horizontally center the text */
 }
 
 .centered-text {
-    font-weight: bold; /* Make text bold */
-    font-size: 4rem;   /* Make text big, adjust size as needed */
+    font-family: Optima;
+    font-weight: bolder; /* Make text bold */
+    font-size: 2rem;   /* Make text big, adjust size as needed */
     text-align: center;
-    color: black;
+    color: #8758FF;
+
 }
 
 .map-container {

@@ -1,6 +1,7 @@
 .cards-title{
     text-align: left;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
     display: block;
 }
 .cards-subtitle {
