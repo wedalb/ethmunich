@@ -132,6 +132,8 @@ const App: React.FC = () => {
 
   const handleAccept = async (serviceAddress : string) => {
     try {
+      console.log('accepting');
+      console.log(serviceAddress);
       //ts-ignore
       await ethService!.methods.accept(Web3.utils.toChecksumAddress(serviceAddress)).send({
         from: account,
@@ -159,6 +161,8 @@ const App: React.FC = () => {
   // Make deposit from user account
   const handleCancel = async  (serviceAddress: string) => {
     try {
+      console.log('cancelling');
+      console.log(serviceAddress);
       //ts-ignore
       await ethService!.methods.cancel(Web3.utils.toChecksumAddress(serviceAddress)).send({
         from: account,
@@ -204,6 +208,8 @@ const App: React.FC = () => {
 
   const claimContestant = async (serviceAddress: string) => {
     try {
+      console.log('claiming');
+      console.log(serviceAddress);
       //ts-ignore
       await ethService!.methods.setContestant(Web3.utils.toChecksumAddress(serviceAddress)).send({
         from: account,
@@ -225,6 +231,8 @@ const App: React.FC = () => {
 
   const revokeContestant = async (serviceAddress: string) => {
     try {
+      console.log('revoking');
+      console.log(serviceAddress);
       //ts-ignore
       await ethService!.methods.revokeContestant(Web3.utils.toChecksumAddress(serviceAddress)).send({
         from: account,
@@ -264,7 +272,7 @@ const App: React.FC = () => {
         <IonTabs>
           <IonRouterOutlet>
             <Route exact path="/services">
-              <JobsTab services={services ?? [] }/>
+              <JobsTab services={services ?? []} onAccept={handleAccept} onCancel={handleCancel} onClaim={claimContestant} onRevoke={revokeContestant} currentAccount={account!}/>
             </Route>
             <Route exact path="/addService">
               <AddTab handleSubmit={handleSubmit}/>

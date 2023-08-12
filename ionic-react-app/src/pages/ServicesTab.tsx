@@ -19,6 +19,11 @@ import Lottie from "lottie-react";
 
 interface ServicesTabProps {
   services: Service[];
+  currentAccount: string;
+  onAccept: (serviceAddress: string) => void;
+  onCancel: (serviceAddress: string) => void;
+  onRevoke: (serviceAddress: string) => void;
+  onClaim: (serviceAddress: string) => void;
 
 }
 const ServicesTab = (props: ServicesTabProps) => {
@@ -71,12 +76,16 @@ const ServicesTab = (props: ServicesTabProps) => {
 
           <IonRow className="card-list-container">
               {props.services ? props.services.map((item, index) => (
-                  <CardComponent key={index} title={item.title} subtitle={item.description} description={"Test"} number={item.amount.toString()} address={item.owner} />
+                  <CardComponent key={index} title={item.title} subtitle={item.description} description={"Test"} number={item.amount.toString()} address={item.owner} isOwner={item.owner==props.currentAccount}
+                  onAccept={() => props.onAccept(item.owner)} onCancel={() => props.onCancel(item.owner)} onClaim={() => props.onClaim(item.owner)} onRevoke={() => props.onRevoke(item.owner)}
+                  isClaimed={item.contestant!=='0x0000000000000000000000000000000000000000'} currentAccount={props.currentAccount} contestant={item.contestant}/>
               ))
             :
             items.map((item, index) => (
-                <CardComponent key={index} title={item.title} subtitle={item.subtitle} description={"Test"} number={"0.1"} address={"0x123"} />
-            ))}
+                <CardComponent key={index} title={item.title} subtitle={item.subtitle} description={"Test"} number={"0.1"} address={"0x123"} isOwner={false}
+                onAccept={() => props.onAccept('')} onCancel={() => props.onCancel('')} onClaim={() => props.onClaim('')} onRevoke={() => props.onRevoke('')}
+                isClaimed={false} currentAccount={props.currentAccount} contestant=''/>
+                ))}
           </IonRow>
       </IonContent>
     </IonPage>

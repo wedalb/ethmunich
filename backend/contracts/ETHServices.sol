@@ -8,8 +8,8 @@ contract ETHServices is Ownable {
         string description;
         string title;
         uint256 amount;
-        address owner;
-        address contestant;
+        address payable owner;
+        address payable contestant;
     }
 
     mapping(address => Service) public services;
@@ -24,12 +24,12 @@ contract ETHServices is Ownable {
 
     function setContestant(address _service) external {
         require(services[_service].contestant == address(0), "contestant not null");
-        services[_service].contestant = msg.sender;
+        services[_service].contestant = payable(msg.sender);
     }
 
     function revokeContestant(address _service) external {
         require(services[_service].owner == msg.sender || services[_service].contestant == msg.sender, "Operation Forbidden");
-        services[_service].contestant = address(0);
+        services[_service].contestant = payable(address(0));
     }
 
     function submit(string calldata title, string calldata description)
@@ -40,7 +40,7 @@ contract ETHServices is Ownable {
             services[msg.sender].amount == 0,
             "User already has a pending service"
         );
-        services[msg.sender].owner = msg.sender;
+        services[msg.sender].owner = payable(msg.sender);
         services[msg.sender].title = title;
         services[msg.sender].description = description;
         uint256 feeAmount = (msg.value * 1) / 1000;
