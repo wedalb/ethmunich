@@ -17,7 +17,7 @@ const CardComponent :  React.FC<CardComponent> = (props) => {
                 <IonCardSubtitle> { props.subtitle }</IonCardSubtitle>
             </IonCardHeader>
             <IonCardContent>
-                <IonLabel className="large-number card-header">{number}</IonLabel>
+                <IonLabel className="large-number card-header">{props.number}</IonLabel>
             </IonCardContent>
         </IonCard>
     );
