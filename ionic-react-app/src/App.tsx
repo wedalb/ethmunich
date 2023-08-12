@@ -44,6 +44,8 @@ import { useEffect, useState } from 'react';
 import Web3, { Contract } from 'web3';
 import ETHService from "./abi/ETHServices.json"
 import { MetaMaskInpageProvider } from "@metamask/providers";
+import SettingsPage from "./pages/SettingsPage";
+
 
 declare global {
   interface Window{
@@ -57,7 +59,6 @@ interface Service {
   contestant: string;
   amount: bigint;
 }
-
 setupIonicReact();
 
 const App: React.FC = () => {
@@ -271,6 +272,9 @@ const App: React.FC = () => {
             </Route>
             <Route exact path="/chat">
               <ChatTab />
+            </Route>
+            <Route exact path="/settings">
+              <SettingsPage />
             </Route>
             <Route exact path="/">
               <Redirect to="/services" />

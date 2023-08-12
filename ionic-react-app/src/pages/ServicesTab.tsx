@@ -2,6 +2,7 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/rea
 import ExploreContainer from '../components/ExploreContainer';
 import CardComponent from '../components/CardComponent';
 import './ServicesTab.css';
+import MyMap from "../components/MapsView";
 
 const items = {
 
@@ -32,9 +33,10 @@ const ServicesTab: React.FC = () => {
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Tab 1</IonTitle>
+            <IonTitle size="large">Services</IonTitle>
           </IonToolbar>
         </IonHeader>
+          <MyMap/>
         <ExploreContainer name="" />
           <div className="card-list-container">
               {items.map((item, index) => (

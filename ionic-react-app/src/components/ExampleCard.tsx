@@ -8,7 +8,7 @@ const ExampleCard: React.FC = () => {
     return (
         <IonCard style={{ background: COLOR_PALETTE.VIOLET.GRADIENT }}>
             <IonCardHeader>
-                <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
+                <IonCardSubtitle>Your Wallet</IonCardSubtitle>
                 <IonCardTitle>345 Points</IonCardTitle>
             </IonCardHeader>
 

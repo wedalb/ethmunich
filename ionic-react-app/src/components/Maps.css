@@ -1,0 +1,11 @@
+capacitor-google-map {
+    display: inline-block;
+    width: 275px;
+    height: 400px;
+    --background: #000;
+    --color: #7b9ed1;
+    border-radius: 20px;
+
+
+
+}

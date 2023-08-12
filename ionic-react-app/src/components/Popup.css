@@ -16,3 +16,17 @@
 }
 
 /* Style the content inside the modal card as needed */
+
+.custom-popup {
+    max-width: 80%;
+    margin: auto;
+}
+
+.popup-content {
+    padding: 16px;
+    text-align: center;
+}
+
+.popup-content p {
+    margin-bottom: 16px;
+}

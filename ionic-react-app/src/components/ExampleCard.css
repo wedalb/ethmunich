@@ -5,9 +5,19 @@
 }
 
 ion-card {
+    --background: #7b9ed1;
+    --color: #7b9ed1;
+    border-radius: 20px;
+
+}
+
+ion-card-title {
+    --color: #f5efc0;
+    font-size: 3rem; /* Adjust as needed */
+    font-weight: bolder;
+    padding-left: 10px;
     --background: #ececec;
     --color: #101111;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adjust shadow properties as needed */
     border-radius: 25px;
 }
 
@@ -73,17 +83,18 @@ ion-card {
 }
 
 ion-card-title {
-    --color: #1c1b1b;
+    --color: #fff;
     font-size: 2rem; /* Adjust as needed */
     font-weight: bolder;
     padding : 10px;
 }
 
 ion-card-subtitle {
-    --color: #090909;
+    --color: #fff65f;
     font-size: 1.5rem; /* Adjust as needed */
     font-weight: normal;
-    padding : 2px;
+    padding-top: 10px;
+    padding-left: 10px;
 }
 .large-number {
     font-size: 32px; /* Adjust font size as needed */
