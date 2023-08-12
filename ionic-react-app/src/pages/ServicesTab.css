@@ -1,0 +1,6 @@
+.card-list-container {
+    display: flex;
+    flex-direction: column; /* Stack cards vertically */
+    gap: 16px; /* Adjust gap value as needed for the desired padding */
+    margin: 0 17%;
+}
