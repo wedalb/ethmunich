@@ -60,7 +60,6 @@ const ServicesTab: React.FC = () => {
           <IonRow>
               <IonCol>
                   <IonRow>
-
                   </IonRow>
               </IonCol>
               <IonRow className="map-container">
