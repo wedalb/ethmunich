@@ -15,7 +15,7 @@ export const COLOR_PALETTE = {
     },
     PINK: {
         LIGHT: '#FFB6C1',
-        DEFAULT: '#FE7BE5',
+        DEFAULT: '#FFC0CB',
         DARK: '#FF69B4',
         GRADIENT: 'linear-gradient(45deg, #FFB6C1, #FF69B4)'
     }

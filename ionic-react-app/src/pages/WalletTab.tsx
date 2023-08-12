@@ -15,10 +15,9 @@ const WalletTab: React.FC = () => {
                         <IonTitle size="large">Tab 3</IonTitle>
                     </IonToolbar>
                 </IonHeader>
-
                 <IonGrid>
                     {/* Avatar Row */}
-                    <IonRow className="ion-align-items-center">
+                    <IonRow className="avatar-row">
                         <IonCol size="auto">
                             <div style={{ width: '50px', height: '50px', borderRadius: '10%', overflow: 'hidden' }}>
                                 <IonImg src={avatarImage} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
@@ -31,10 +30,7 @@ const WalletTab: React.FC = () => {
                                 <h3>Sarah Conner</h3>
                             </IonLabel>
                         </IonCol>
-
-
                     </IonRow>
-
                     <IonRow>
                         <IonCol>
                             <div className="card-container">
@@ -43,12 +39,7 @@ const WalletTab: React.FC = () => {
                             </div>
                         </IonCol>
                     </IonRow>
-
-
                 </IonGrid>
-
-
-                <ExploreContainer name="Wallet tab page" />
             </IonContent>
         </IonPage>
     );
