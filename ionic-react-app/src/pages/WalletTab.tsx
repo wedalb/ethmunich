@@ -40,7 +40,7 @@ const WalletTab: React.FC = () => {
                         {/* Avatar Row */}
                         <IonRow className="avatar-row">
                             <IonCol className="avatar-image-container" size="auto">
-                                <div style={{ width: '50px', height: '50px', borderRadius: '20%', overflow: 'hidden' }}>
+                                <div>
                                     <IonImg src={avatarImage} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                 </div>
                             </IonCol>

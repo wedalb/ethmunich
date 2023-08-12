@@ -27,7 +27,7 @@ const ServicesTab: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle></IonTitle>
+          <IonTitle>Tab 1</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>

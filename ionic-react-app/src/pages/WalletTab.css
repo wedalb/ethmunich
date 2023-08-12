@@ -22,8 +22,19 @@
     align-items: center; /* Vertically center the direct children of the flex container */
 }
 .avatar-image-container {
-    margin-right: 10px; /* Adjust the value as needed */
+    margin-right: 10px;
+
 }
+
+.avatar-image-container div {
+    width: 50px;
+    height: 50px;
+    border-radius: 20%;
+    box-shadow: 0px 0px 20px 3px #533d72;
+
+    overflow: hidden;
+}
+
 
 .avatar-welcome-text {
     font-weight: 300; /* This will make the text lighter. Adjust as needed. */
@@ -31,13 +42,8 @@
 }
 
 .avatar-user-name {
-    font-weight: bolder; /* This will make the text bolder. */
-    font-size: 3rem; /* Adjust font size to make it bigger. */
-}
-
-
-IonLabel h3 {
-    font-weight: bold !important;
+    font-weight: bolder !important;
+    font-size: 1rem !important;
 }
 
 .wallet-button-row{
