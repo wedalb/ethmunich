@@ -21,7 +21,7 @@
 
 .centered-text {
     font-weight: bold; /* Make text bold */
-    font-size: 2em;   /* Make text big, adjust size as needed */
+    font-size: 4rem;   /* Make text big, adjust size as needed */
     text-align: center;
     color: black;
 }

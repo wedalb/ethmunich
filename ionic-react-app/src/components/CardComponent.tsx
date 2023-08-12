@@ -49,27 +49,16 @@ const CardComponent: React.FC<CardComponentProps> = (props) => {
     return (
         <div onClick={openPopup}>
             <IonCard>
-                <IonCardHeader>
-                    <IonGrid>
-                        <IonRow>
-                            <IonCol> {/* Column for the image */}
-                                <div>
-                                    <IonImg src={walletImage} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                                </div>
-                            </IonCol>
-                            <IonCol> {/* Column for the title and subtitle */}
-                                <div>
-                                    <IonCardTitle>{props.title}</IonCardTitle>
-                                    <IonCardSubtitle>{props.subtitle}</IonCardSubtitle>
-                                </div>
-                            </IonCol>
-                            <IonCol> {/* Column for the number */}
-                                <IonLabel>{props.number}</IonLabel>
-                            </IonCol>
-                        </IonRow>
-                    </IonGrid>
-                </IonCardHeader>
-                <IonCardContent> </IonCardContent>
+                <IonRow>
+                    <IonCardHeader>
+                        <IonCardTitle className="cards-title">{props.title}</IonCardTitle>
+                        <IonCardSubtitle className="cards-subtitle">{props.subtitle}</IonCardSubtitle>
+                    </IonCardHeader>
+                    <IonCol className="cards-number-col">
+                        <p className="cards-number"> {props.number}
+                        </p>
+                    </IonCol>
+                </IonRow>
             </IonCard>
             <PopupComponent isOpen={showPopup} onClose={setShowPopup}  title={props.title} subtitle={props.subtitle} />
         </div>
