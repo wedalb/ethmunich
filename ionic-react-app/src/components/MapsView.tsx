@@ -14,15 +14,34 @@ const MyMap: React.FC = () => {
             apiKey: "AIzaSyCL1DRZKzq-WHwvd4joVy4X5IQwhRrcQkk",
             config: {
                 center: {
-                    lat: 48.6,
-                    lng: 11.5,
+                    lat: 48.139654431697515,
+                    lng:  11.580722771538866
                 },
-                zoom: 8,
+                zoom: 13,
                 streetViewControl: false,
                 disableDefaultUI: true
 
             }
         })
+        // Add a marker to the map
+        const markerId = await newMap.addMarker({
+            coordinate: {
+                lat: 48.13838582559387,
+                lng: 11.566516639189507
+            }
+        });
+        const markerId2 = await newMap.addMarker({
+            coordinate: {
+                lat: 48.1483619145341357,
+                lng: 11.589001109996095
+            }
+        });
+        const markerId3 = await newMap.addMarker({
+            coordinate: {
+                lat: 48.13663938762427,
+                lng: 11.594337751261142
+            }
+        });
     }
 
     return (
