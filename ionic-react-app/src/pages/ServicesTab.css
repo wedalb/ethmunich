@@ -3,3 +3,25 @@
     flex-direction: column; /* Stack cards vertically */
 
 }
+
+.lottie-animation{
+    max-height: 200px;
+
+}
+
+.lottie-card{
+
+}
+
+.text-container {
+    display: flex;
+    align-items: center; /* Vertically center the text */
+    justify-content: center; /* Horizontally center the text */
+}
+
+.centered-text {
+    font-weight: bold; /* Make text bold */
+    font-size: 2em;   /* Make text big, adjust size as needed */
+    text-align: center;
+    color: black;
+}

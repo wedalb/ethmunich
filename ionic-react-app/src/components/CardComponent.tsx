@@ -72,7 +72,7 @@ const CardComponent: React.FC<CardComponentProps> = (props) => {
                 </IonCardHeader>
                 <IonCardContent> </IonCardContent>
             </IonCard>
-            <PopupComponent isOpen={showPopup} onClose={closePopup} />
+            <PopupComponent isOpen={showPopup} onClose={closePopup}  title={props.title} subtitle={props.subtitle} />
         </div>
     );
 }
