@@ -10,10 +10,17 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import {add, addOutline, ellipse, gridOutline, square, triangle, wallet, walletOutline} from 'ionicons/icons';
+import {
+  add,
+  addOutline,
+  chatbubbleOutline,
+  gridOutline,
+  walletOutline
+} from 'ionicons/icons';
 import JobsTab from './pages/ServicesTab';
 import AddTab from './pages/AddTab';
 import WalletTab from './pages/WalletTab';
+import ChatTab from "./pages/ChatTab";
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -50,6 +57,9 @@ const App: React.FC = () => (
             <Route path="/wallet">
               <WalletTab />
             </Route>
+            <Route exact path="/chat">
+              <ChatTab />
+            </Route>
             <Route exact path="/">
               <Redirect to="/services" />
             </Route>
@@ -62,6 +72,10 @@ const App: React.FC = () => (
             <IonTabButton tab="addService" href="/addService">
               <IonIcon aria-hidden="true" icon={addOutline} />
               <IonLabel>Add Service</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="chat" href="/chat">
+              <IonIcon aria-hidden="true" icon={chatbubbleOutline} />
+              <IonLabel>Chat</IonLabel>
             </IonTabButton>
             <IonTabButton tab="wallet" href="/wallet">
               <IonIcon aria-hidden="true" icon={walletOutline} />

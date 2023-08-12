@@ -1,0 +1,13 @@
+/* WalletTab.css */
+
+.card-container {
+    position: relative; /* Set this to control the absolute positioning of children */
+}
+
+.overlay-image {
+    position: absolute;
+    top: -60px;  /* Moves the image 10 pixels above the container's top boundary */
+    right: 0;
+    width: 50%;
+    z-index: 10;
+}

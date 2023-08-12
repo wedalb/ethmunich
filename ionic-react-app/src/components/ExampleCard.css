@@ -1,0 +1,22 @@
+.card-title,
+.card-subtitle,
+.card-content {
+    color: white;
+}
+
+ion-card {
+    --background: #000;
+    --color: #7b9ed1;
+}
+
+ion-card-title {
+    --color: #ffff;
+    font-size: 3rem; /* Adjust as needed */
+    font-weight: bolder;
+}
+
+ion-card-subtitle {
+    --color: #7b9ed1;
+    font-size: 1rem; /* Adjust as needed */
+    font-weight: normal;
+}
