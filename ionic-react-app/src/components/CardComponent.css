@@ -1,84 +1,19 @@
-.card-title,
-.card-subtitle,
-.card-content {
-    color: transparent;
+.cards-title{
+    text-align: left;
+    font-size: 1.2rem;
+}
+.cards-subtitle {
+    text-align: left;
+    font-size: 0.7rem;
+
 }
 
-ion-card {
-    --background: #7b9ed1;
-    border-radius: 15px;
-}
-
-ion-card-title {
-    --color: #101111;
-    font-size: 1rem;
-    font-weight: bolder;
-    --background: #ececec;
-    border-radius: 25px;
-}
-
-.title-container {
-    padding-right: 16px;
-    font-size: 1rem;
-}
-
-.number-container {
-    padding-left: 16px;
-    font-size: 1rem;
-}
-
-.ion-card-with-shadow {
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.card-container {
-    cursor: pointer;
-    border-radius: 10px;
-    transition: background-color 0.3s ease;
-}
-
-.card-container:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-}
-
-.image-overlay img {
-    width: 24px;
-    height: auto;
-    display: block;
-    margin: auto;
-    background: #2a2a2a;
-}
-
-.card-header {
+.cards-number-col {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
-.profile-col,
-.number-col {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-ion-card-title,
-ion-card-subtitle {
-    --color: #fff;
-    font-size: 1rem;
-
-}
-
-ion-card-subtitle {
-    --color: #fff65f;
-    --font-size: 0.5rem;
-    font-weight: normal;
-    font-size: 1rem;
-}
-
-.large-number {
-    font-size: 2px;
-    font-weight: bold;
-    color: #F2B47E;
-    text-align: right;
+.cards-number {
+    margin: 0; /* This will remove default paragraph margins */
 }
