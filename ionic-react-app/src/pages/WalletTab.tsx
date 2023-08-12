@@ -9,17 +9,24 @@ import {
     IonCol,
     IonImg,
     IonLabel,
-    IonButton, IonIcon
+    IonButton,
+    IonIcon
 } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
 import './WalletTab.css';
 import avatarImage from '../assets/images/avatarmock.jpeg';
 import walletImage from '../assets/images/3dwallet.png';
 
 import ExampleCard from "../components/ExampleCard";
-import {star} from "ionicons/icons";
+import {cash, send, settingsSharp} from "ionicons/icons";
+import { useHistory } from 'react-router-dom';
 
 const WalletTab: React.FC = () => {
+    const history = useHistory();
+
+    const navigateToSettings = () => {
+        history.push("/settings");
+    };
+
     return (
         <IonPage>
             <IonContent fullscreen>
@@ -32,20 +39,22 @@ const WalletTab: React.FC = () => {
                     <IonCol>
                         {/* Avatar Row */}
                         <IonRow className="avatar-row">
-
-
-
-                            <IonCol size="auto">
-                                <div style={{ width: '50px', height: '50px', borderRadius: '10%', overflow: 'hidden' }}>
+                            <IonCol className="avatar-image-container" size="auto">
+                                <div style={{ width: '50px', height: '50px', borderRadius: '20%', overflow: 'hidden' }}>
                                     <IonImg src={avatarImage} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                 </div>
                             </IonCol>
 
                             <IonCol>
                                 <IonLabel>
-                                    <p>Welcome back,</p>
-                                    <h3>Sarah Conner</h3>
+                                    <p className="avatar-welcome-text">Welcome back,</p>
+                                    <h3 className="avatar-user-name">Sarah Conner</h3>
                                 </IonLabel>
+                            </IonCol>
+                            <IonCol size="auto">
+                                <IonButton fill="clear" onClick={navigateToSettings}>
+                                    <IonIcon icon={settingsSharp} />
+                                </IonButton>
                             </IonCol>
                         </IonRow>
                         <IonRow>
@@ -58,11 +67,11 @@ const WalletTab: React.FC = () => {
                         </IonRow>
                         <IonRow className="wallet-button-row">
                             <IonButton className="wallet-button" size="large">
-                                <IonIcon slot="start" icon={star}></IonIcon>
+                                <IonIcon className="custom-icon-size" slot="start" icon={cash}></IonIcon>
                                 Withdraw
                             </IonButton>
                             <IonButton className="wallet-button" size="large">
-                                <IonIcon slot="start" icon={star}></IonIcon>
+                                <IonIcon className="custom-icon-size" slot="start" icon={send}></IonIcon>
                                 Transfer
                             </IonButton>
                         </IonRow>
