@@ -1,9 +1,13 @@
 import { GoogleMap } from '@capacitor/google-maps';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 const MyMap: React.FC = () => {
     const mapRef = useRef<HTMLElement>();
     let newMap: GoogleMap;
+
+    useEffect(() => {
+        createMap();
+      }, []);
 
     async function createMap() {
         if (!mapRef.current) return;
@@ -51,8 +55,6 @@ const MyMap: React.FC = () => {
                 width: 275,
                 height: 400
             }}></capacitor-google-map>
-
-            <button onClick={createMap}>Create Map</button>
         </div>
     )
 }
