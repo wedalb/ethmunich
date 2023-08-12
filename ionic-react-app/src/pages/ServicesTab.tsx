@@ -3,11 +3,14 @@ import ExploreContainer from '../components/ExploreContainer';
 import CardComponent from '../components/CardComponent';
 import './ServicesTab.css';
 import MyMap from "../components/MapsView";
+import {useEffect} from "react";
 
 
 const items = {
 
 }
+
+
 const ServicesTab: React.FC = () => {
     const items = [
         { title: 'Fix Bench in your local park', subtitle: 'Someone vandalized the bench here.' },

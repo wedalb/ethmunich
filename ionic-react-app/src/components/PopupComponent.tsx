@@ -7,7 +7,7 @@ import {
     IonTitle,
     IonToolbar,
     IonInput,
-    IonImg
+    IonImg, IonCardTitle, IonCardSubtitle
 } from '@ionic/react';
 
 import './Popup.css'; // Import your custom CSS for styling
@@ -31,15 +31,18 @@ const PopupComponent: React.FC<PopupComponentProps> = ({ isOpen, onClose, title,
             </IonHeader>
             <IonContent>
                 <div className="popup-content">
-                    <p>This is the content of the popup.</p>
-                    <p>Title: {title}</p>
-                    <p>Subtitle: {subtitle}</p>
+                    <div className="title-container">
+                        <IonCardTitle>{title}</IonCardTitle>
+                        <hr className="divider" />
+                        <IonCardSubtitle>{subtitle}</IonCardSubtitle>
+                    </div>
                     <IonInput
                         value={inputValue}
                         placeholder="Enter text"
                         onIonChange={(e) => setInputValue(e.detail.value!)}
                     />
                     <IonButton onClick={onClose}>Close</IonButton>
+                    <IonButton onClick={onClose}>Claim </IonButton>
                 </div>
             </IonContent>
         </IonModal>
