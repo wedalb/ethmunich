@@ -50,19 +50,19 @@ contract ETHServices is Ownable {
         emit serviceDeposited(msg.sender, services[msg.sender]);
     }
 
-    function accept() external {
+    function accept(address _service) external {
         require(
-            services[msg.sender].amount > 0,
+            services[_service].amount > 0,
             "Insufficient balance Or Service not available"
         );
-        require(services[msg.sender].contestant != address(0));
-        require(msg.sender == services[msg.sender].owner);
-        payable(services[msg.sender].contestant).transfer(services[msg.sender].amount);
-        emit serviceWithdrawn(msg.sender, services[msg.sender]);
-        services[msg.sender].amount = 0;
+        require(services[_service].contestant != address(0));
+        require(msg.sender == services[_service].owner);
+        payable(services[_service].contestant).transfer(services[_service].amount);
+        emit serviceWithdrawn(msg.sender, services[_service]);
+        services[_service].amount = 0;
         // Remove the address from the depositedAddresses array
         for (uint256 i = 0; i < depositedAddresses.length; i++) {
-            if (depositedAddresses[i] == msg.sender) {
+            if (depositedAddresses[i] == _service) {
                 depositedAddresses[i] = depositedAddresses[
                     depositedAddresses.length - 1
                 ];
@@ -72,15 +72,15 @@ contract ETHServices is Ownable {
         }
     }
 
-    function cancel() external {
-        require(services[msg.sender].amount > 0, "No Active Service");
-        require(msg.sender == services[msg.sender].owner);
-        payable(msg.sender).transfer(services[msg.sender].amount);
+    function cancel(address _service) external {
+        require(services[_service].amount > 0, "No Active Service");
+        require(msg.sender == services[_service].owner);
+        payable(_service).transfer(services[_service].amount);
         emit serviceWithdrawn(msg.sender, services[msg.sender]);
-        services[msg.sender].amount = 0;
+        services[_service].amount = 0;
         // Remove the address from the depositedAddresses array
         for (uint256 i = 0; i < depositedAddresses.length; i++) {
-            if (depositedAddresses[i] == msg.sender) {
+            if (depositedAddresses[i] == _service) {
                 depositedAddresses[i] = depositedAddresses[
                     depositedAddresses.length - 1
                 ];
