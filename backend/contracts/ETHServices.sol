@@ -32,7 +32,7 @@ contract ETHServices is Ownable {
         services[_service].contestant = address(0);
     }
 
-    function deposit(string calldata title, string calldata description)
+    function submit(string calldata title, string calldata description)
         external
         payable
     {
@@ -50,7 +50,7 @@ contract ETHServices is Ownable {
         emit serviceDeposited(msg.sender, services[msg.sender]);
     }
 
-    function withdraw() external {
+    function accept() external {
         require(
             services[msg.sender].amount > 0,
             "Insufficient balance Or Service not available"
@@ -58,6 +58,24 @@ contract ETHServices is Ownable {
         require(services[msg.sender].contestant != address(0));
         require(msg.sender == services[msg.sender].owner);
         payable(services[msg.sender].contestant).transfer(services[msg.sender].amount);
+        emit serviceWithdrawn(msg.sender, services[msg.sender]);
+        services[msg.sender].amount = 0;
+        // Remove the address from the depositedAddresses array
+        for (uint256 i = 0; i < depositedAddresses.length; i++) {
+            if (depositedAddresses[i] == msg.sender) {
+                depositedAddresses[i] = depositedAddresses[
+                    depositedAddresses.length - 1
+                ];
+                depositedAddresses.pop();
+                break;
+            }
+        }
+    }
+
+    function cancel() external {
+        require(services[msg.sender].amount > 0, "No Active Service");
+        require(msg.sender == services[msg.sender].owner);
+        payable(msg.sender).transfer(services[msg.sender].amount);
         emit serviceWithdrawn(msg.sender, services[msg.sender]);
         services[msg.sender].amount = 0;
         // Remove the address from the depositedAddresses array
