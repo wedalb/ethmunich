@@ -63,6 +63,7 @@ const AddTab = (props: AddTabProps) => {
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
+        <div className="form-container">
         <IonItem>
           <IonLabel position="floating">Title</IonLabel>
           <IonInput
@@ -85,6 +86,7 @@ const AddTab = (props: AddTabProps) => {
             onIonChange={(e) => setPrice(e.detail.value!)}
           />
         </IonItem>
+        </div>
         <IonButton expand="full" onClick={() => props.handleSubmit(title, description, price)}>
           Submit
         </IonButton>

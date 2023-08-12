@@ -1,0 +1,7 @@
+/* styles.css */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Adjust the value as needed */
+  padding: 16px; /* Optional padding */
+}
