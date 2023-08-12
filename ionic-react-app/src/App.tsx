@@ -52,7 +52,7 @@ declare global {
     ethereum?:MetaMaskInpageProvider
   }
 }
-interface Service {
+export interface Service {
   title: string;
   description : string;
   owner: string;

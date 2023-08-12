@@ -20,6 +20,7 @@ interface CardComponentProps {
     subtitle: string;
     description: string; // Currently not being used in the component
     number: string;
+    address: string; // Currently not being used in the component
 }
 
 const CardComponent: React.FC<CardComponentProps> = (props) => {

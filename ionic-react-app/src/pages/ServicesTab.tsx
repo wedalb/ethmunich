@@ -3,11 +3,13 @@ import ExploreContainer from '../components/ExploreContainer';
 import CardComponent from '../components/CardComponent';
 import './ServicesTab.css';
 import MyMap from "../components/MapsView";
+import { Service } from '../App';
 
-const items = {
+interface ServicesTabProps {
+  services: Service[];
 
 }
-const ServicesTab: React.FC = () => {
+const ServicesTab = (props: ServicesTabProps) => {
     const items = [
         { title: 'Fix Bench in your local park', subtitle: 'Someone vandalized the bench here.' },
         { title: 'Repair Piping in the Animal Shelter', subtitle: 'The kitties are drippin\'  '},
@@ -39,8 +41,8 @@ const ServicesTab: React.FC = () => {
           <MyMap/>
         <ExploreContainer name="" />
           <div className="card-list-container">
-              {items.map((item, index) => (
-                  <CardComponent key={index} title={item.title} subtitle={item.subtitle} description={"Test"} number={"+0.025ETH"} />
+              {props.services.map((item, index) => (
+                  <CardComponent key={index} title={item.title} subtitle={item.description} description={"Test"} number={item.amount.toString()} address={item.owner} />
               ))}
           </div>
       </IonContent>
