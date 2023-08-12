@@ -33,6 +33,7 @@ const CardComponent: React.FC<CardComponentProps> = (props) => {
         console.log("closing");
 
         // see bugreport https://github.com/ionic-team/ionic-framework/issues/22336
+        /*
         const ionOverlay = 'ion-overlay-';
         for (let i = 1; i < 100; i++) {
             let overlay = ionOverlay.concat(i.toString());
@@ -42,7 +43,7 @@ const CardComponent: React.FC<CardComponentProps> = (props) => {
                 parent?.removeChild(modal);
                 break;
             }
-        }
+        }*/
     };
 
     return (
@@ -70,7 +71,7 @@ const CardComponent: React.FC<CardComponentProps> = (props) => {
                 </IonCardHeader>
                 <IonCardContent> </IonCardContent>
             </IonCard>
-            <PopupComponent isOpen={showPopup} onClose={closePopup}  title={props.title} subtitle={props.subtitle} />
+            <PopupComponent isOpen={showPopup} onClose={setShowPopup}  title={props.title} subtitle={props.subtitle} />
         </div>
     );
 }
