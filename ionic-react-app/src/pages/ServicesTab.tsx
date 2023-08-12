@@ -59,9 +59,13 @@ const ServicesTab = (props: ServicesTabProps) => {
               </IonCard>
           </IonRow>
           <div className="card-list-container">
-              {props.services.map((item, index) => (
+              {props.services ? props.services.map((item, index) => (
                   <CardComponent key={index} title={item.title} subtitle={item.description} description={"Test"} number={item.amount.toString()} address={item.owner} />
-              ))}
+              ))
+            :
+            items.map((item, index) => (
+                <CardComponent key={index} title={item.title} subtitle={item.subtitle} description={"Test"} number={"0.1"} address={"0x123"} />
+            ))}
           </div>
       </IonContent>
     </IonPage>
