@@ -25,3 +25,12 @@
     text-align: center;
     color: black;
 }
+
+.map-container {
+    max-height: 250px;
+    max-width: 250px;
+    border-radius: 30px; /* This gives you the rounded corners */
+    overflow: hidden; /* This ensures the content doesn't spill out of the rounded rectangle */
+
+}
+

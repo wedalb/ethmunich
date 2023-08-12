@@ -180,10 +180,12 @@ const App: React.FC = () => {
 
   const handleSubmit = async (title: string, description: string, amount: string) => {
     try {
+      console.log('submitting');
+      console.log(title, description, amount);
       //ts-ignore
       await ethService!.methods.submit(title, description).send({
         from: account,
-        value: amount,
+        value: web3!.utils.toWei(amount, "ether"),
       });
       const activeOwners = await ethService!.methods.getDepositedAddresses().call() as string[];
       console.log(activeOwners);
@@ -262,10 +264,10 @@ const App: React.FC = () => {
         <IonTabs>
           <IonRouterOutlet>
             <Route exact path="/services">
-              <JobsTab />
+              <JobsTab services={services ?? [] }/>
             </Route>
             <Route exact path="/addService">
-              <AddTab />
+              <AddTab handleSubmit={handleSubmit}/>
             </Route>
             <Route path="/wallet">
               <WalletTab />

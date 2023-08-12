@@ -4,6 +4,10 @@ import { useEffect, useRef } from 'react';
 const MyMap: React.FC = () => {
     const mapRef = useRef<HTMLElement>();
     let newMap: GoogleMap;
+    useEffect(() => {
+        createMap();
+    }, []);
+
 
     useEffect(() => {
         createMap();
@@ -52,8 +56,8 @@ const MyMap: React.FC = () => {
         <div className="component-wrapper">
             <capacitor-google-map ref={mapRef} style={{
                 display: 'inline-block',
-                width: 275,
-                height: 400
+                width: 250,
+                height: 250
             }}></capacitor-google-map>
         </div>
     )
