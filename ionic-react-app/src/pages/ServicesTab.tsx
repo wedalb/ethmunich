@@ -40,8 +40,7 @@ const ServicesTab = (props: ServicesTabProps) => {
   return (
     <IonPage>
       <IonContent fullscreen>
-            <MyMap/>
-          <IonRow>
+          <IonRow> {/* Lottie Animation*/}
               <IonCard>
                   <IonCardContent>
                       <IonRow className="lottie-card">
@@ -58,7 +57,19 @@ const ServicesTab = (props: ServicesTabProps) => {
                   </IonCardContent>
               </IonCard>
           </IonRow>
-          <div className="card-list-container">
+
+          <IonRow>
+              <IonCol>
+                  <IonRow>
+
+                  </IonRow>
+              </IonCol>
+              <IonRow className="map-container">
+                  <MyMap/>
+              </IonRow>
+          </IonRow>
+
+          <IonRow className="card-list-container">
               {props.services ? props.services.map((item, index) => (
                   <CardComponent key={index} title={item.title} subtitle={item.description} description={"Test"} number={item.amount.toString()} address={item.owner} />
               ))
@@ -66,7 +77,7 @@ const ServicesTab = (props: ServicesTabProps) => {
             items.map((item, index) => (
                 <CardComponent key={index} title={item.title} subtitle={item.subtitle} description={"Test"} number={"0.1"} address={"0x123"} />
             ))}
-          </div>
+          </IonRow>
       </IonContent>
     </IonPage>
   );

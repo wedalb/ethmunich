@@ -30,11 +30,7 @@ const WalletTab: React.FC = () => {
     return (
         <IonPage>
             <IonContent fullscreen>
-                <IonHeader collapse="condense">
-                    <IonToolbar>
-                        <IonTitle size="large">Tab 3</IonTitle>
-                    </IonToolbar>
-                </IonHeader>
+
                 <IonGrid>
                     <IonCol>
                         {/* Avatar Row */}
