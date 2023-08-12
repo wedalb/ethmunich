@@ -98,7 +98,7 @@ const App: React.FC = () => {
         // Initalize contracts
         const ethServiceContract = new web3.eth.Contract(
           ETHService.abi, // Contract ABI
-          ETHService.networks[netIdString].address // Contract address
+          ETHService.networks[netId].address // Contract address
         );
         setEthService(ethServiceContract);
 
@@ -152,7 +152,7 @@ const App: React.FC = () => {
 
 
   useEffect(() => {
-    checkWalletConnection();
+    connectWalletHandler();
   }, []);
 
   // Make deposit from user account
