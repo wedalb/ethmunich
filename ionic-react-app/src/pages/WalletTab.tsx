@@ -19,6 +19,7 @@ import walletImage from '../assets/images/3dwallet.png';
 import ExampleCard from "../components/ExampleCard";
 import {cash, send, settingsSharp} from "ionicons/icons";
 import { useHistory } from 'react-router-dom';
+import DynamicLineChart from "../components/DynamicLineChart";
 
 const WalletTab: React.FC = () => {
     const history = useHistory();
@@ -70,6 +71,9 @@ const WalletTab: React.FC = () => {
                                 <IonIcon className="custom-icon-size" slot="start" icon={send}></IonIcon>
                                 Transfer
                             </IonButton>
+                        </IonRow>
+                        <IonRow>
+                        <DynamicLineChart/>
                         </IonRow>
                     </IonCol>
                 </IonGrid>
