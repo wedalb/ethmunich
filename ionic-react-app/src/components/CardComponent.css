@@ -1,19 +1,32 @@
 .cards-title{
     text-align: left;
     font-size: 1.2rem;
+    display: block;
 }
 .cards-subtitle {
     text-align: left;
     font-size: 0.7rem;
+    display: block;
 
 }
 
 .cards-number-col {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* Align the number to the start of the column */
 }
 
 .cards-number {
-    margin: 0; /* This will remove default paragraph margins */
+    margin: 0; /* Remove default paragraph margins */
+    text-align: right;
+    padding-left: 5px;
 }
+.cards-row{
+    padding: 20px;
+    color: #cccccc;
+    position: relative; /* Ensure it's positioned */
+    z-index: 20; /* Set a higher z-index than the card-container and overlay-image */
+    display: flex; /* Make this a flex container */
+    align-items: center;
+}
+

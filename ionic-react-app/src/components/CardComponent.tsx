@@ -8,12 +8,13 @@ import {
     IonGrid,
     IonRow,
     IonCol,
-    IonImg, IonCardContent
+    IonImg, IonCardContent, IonButton, IonIcon, IonText
 } from '@ionic/react';
 import walletImage from '../assets/images/3dwallet.png';
 import avatarImage from "../assets/images/avatarmock.jpeg";  // This import is currently unused.
 import PopupComponent from "./PopupComponent";
 import "./CardComponent.css";
+import {settingsSharp} from "ionicons/icons";
 
 interface CardComponentProps {
     title: string;
@@ -49,14 +50,15 @@ const CardComponent: React.FC<CardComponentProps> = (props) => {
     return (
         <div onClick={openPopup}>
             <IonCard>
-                <IonRow>
-                    <IonCardHeader>
-                        <IonCardTitle className="cards-title">{props.title}</IonCardTitle>
-                        <IonCardSubtitle className="cards-subtitle">{props.subtitle}</IonCardSubtitle>
-                    </IonCardHeader>
-                    <IonCol className="cards-number-col">
-                        <p className="cards-number"> {props.number}
-                        </p>
+                <IonRow className="cards-row">
+                    <IonCol>
+                        <IonLabel>
+                            <IonText className="cards-title">{props.title}</IonText>
+                            <IonText className="cards-subtitle">{props.subtitle}</IonText>
+                        </IonLabel>
+                    </IonCol>
+                    <IonCol size="auto">
+                        <IonText className="cards-number">{props.number}</IonText>
                     </IonCol>
                 </IonRow>
             </IonCard>
