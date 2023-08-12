@@ -15,7 +15,7 @@ import ButtonPill from "./ButtonPill"
 
 interface PopupComponentProps {
     isOpen: boolean;
-    onClose: () => void;
+    onClose: any;
     title: string; // Add title prop
     subtitle: string; // Add subtitle prop
 }
@@ -42,7 +42,7 @@ const PopupComponent: React.FC<PopupComponentProps> = ({ isOpen, onClose, title,
                         placeholder="Enter text"
                         onIonChange={(e) => setInputValue(e.detail.value!)}
                     />
-                    <IonButton onClick={onClose}>Close</IonButton>
+                    <IonButton onClick={onClose(false)}>Close</IonButton>
                     <ButtonPill />
                 </div>
             </IonContent>
