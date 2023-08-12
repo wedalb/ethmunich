@@ -91,7 +91,7 @@ const App: React.FC = () => {
         // Initalize contracts
         const ethServiceContract = new web3.eth.Contract(
           ETHService.abi, // Contract ABI
-          ETHService.networks[netId as any].address // Contract address
+          ETHService.networks[netIdString].address // Contract address
         );
         setEthService(ethServiceContract);
 
@@ -100,13 +100,13 @@ const App: React.FC = () => {
         setAccount(accounts[0]);
 
         setEthBalance(web3.utils.fromWei(balance, "ether"));
-        const activeOwners = await ethServiceContract.methods.getDepositedAddresses().call();
-        await ethServiceContract.methods.accept("dsf").send();
+        const activeOwners = await ethServiceContract.methods.getDepositedAddresses().call() as string[];
         console.log(activeOwners);
         setActiveServiceOwners(activeOwners);
         
         const serviceArray : Service[] = [];
         for (var activeOwner of activeOwners){
+          //ts-ignore
           serviceArray.push(await ethServiceContract?.methods.services(activeOwner).call());
         }
 
@@ -124,16 +124,17 @@ const App: React.FC = () => {
 
   const handleAccept = async (serviceAddress : string) => {
     try {
-
+      //ts-ignore
       await ethService!.methods.accept(Web3.utils.toChecksumAddress(serviceAddress)).send({
         from: account,
       });
-      const activeOwners = await ethService?.methods.getDepositedAddresses().call();
+      const activeOwners = await ethService!.methods.getDepositedAddresses().call() as string[];
       console.log(activeOwners);
       setActiveServiceOwners(activeOwners);
       const serviceArray : Service[] = [];
       for (var activeOwner of activeOwners){
-        serviceArray.push(await ethService?.methods.services(activeOwner).call());
+        //ts-ignore
+        serviceArray.push(await ethService?.methods.services(activeOwner).call() as Service);
       }
       console.log(serviceArray);
       setServices(serviceArray);
@@ -148,100 +149,89 @@ const App: React.FC = () => {
   }, []);
 
   // Make deposit from user account
-  const handleDeposit = async () => {
+  const handleCancel = async  (serviceAddress: string) => {
     try {
-      await bbseBank?.methods.deposit().send({
+      //ts-ignore
+      await ethService!.methods.cancel(Web3.utils.toChecksumAddress(serviceAddress)).send({
         from: account,
-        value: web3.utils.toWei(newDeposit, "ether"),
       });
-      setDeposit(await bbseBank.methods.investors(account).call());
-      setBlockNumber(await web3.eth.getBlockNumber());
-      const balance = await web3.eth.getBalance(account);
-      const tokenBalance = await bbseToken.methods.balanceOf(account).call();
-      setEthBalance(web3.utils.fromWei(balance, "ether"));
-      setBbseBalance(web3.utils.fromWei(tokenBalance, "ether"));
-      setNewDeposit(0);
+      const activeOwners = await ethService!.methods.getDepositedAddresses().call() as string[];
+      console.log(activeOwners);
+      setActiveServiceOwners(activeOwners);
+      const serviceArray : Service[] = [];
+      for (var activeOwner of activeOwners){
+        //ts-ignore
+        serviceArray.push(await ethService?.methods.services(activeOwner).call() as Service);
+      }
+      console.log(serviceArray);
+      setServices(serviceArray);
     } catch (e) {
       console.log(e);
     }
   };
 
-  // Wihtdraw existing deposit
-  const handleWithdraw = async () => {
+  const handleSubmit = async (title: string, description: string, amount: string) => {
     try {
-      await bbseBank?.methods.withdraw().send({
+      //ts-ignore
+      await ethService!.methods.submit(title, description).send({
         from: account,
+        value: amount,
       });
-      setDeposit(await bbseBank.methods.investors(account).call());
-      setBlockNumber(await web3.eth.getBlockNumber());
-      const balance = await web3.eth.getBalance(account);
-      const tokenBalance = await bbseToken.methods.balanceOf(account).call();
-      setEthBalance(web3.utils.fromWei(balance, "ether"));
-      setBbseBalance(web3.utils.fromWei(tokenBalance, "ether"));
+      const activeOwners = await ethService!.methods.getDepositedAddresses().call() as string[];
+      console.log(activeOwners);
+      setActiveServiceOwners(activeOwners);
+      const serviceArray : Service[] = [];
+      for (var activeOwner of activeOwners){
+        //ts-ignore
+        serviceArray.push(await ethService?.methods.services(activeOwner).call() as Service);
+      }
+      console.log(serviceArray);
+      setServices(serviceArray);
     } catch (e) {
       console.log(e);
     }
   };
 
-  // Take loan from BBSE Bank
-  const handleLoan = async () => {
+  const claimContestant = async (serviceAddress: string) => {
     try {
-      await bbseBank?.methods
-        .borrow(web3.utils.toWei(newLoan.toString(), "ether"))
-        .send({
-          from: account,
-        });
-      setLoan(await bbseBank.methods.borrowers(account).call());
-      setBlockNumber(await web3.eth.getBlockNumber());
-      const balance = await web3.eth.getBalance(account);
-      const tokenBalance = await bbseToken.methods.balanceOf(account).call();
-      setEthBalance(web3.utils.fromWei(balance, "ether"));
-      setBbseBalance(web3.utils.fromWei(tokenBalance, "ether"));
-      // Update allowance state var after loan is taken
-      const allowance = await bbseToken.methods
-        .allowance(account, bbseBank._address)
-        .call();
-      setAllowance(allowance);
-      setNewLoan(0);
+      //ts-ignore
+      await ethService!.methods.setContestant(Web3.utils.toChecksumAddress(serviceAddress)).send({
+        from: account,
+      });
+      const activeOwners = await ethService!.methods.getDepositedAddresses().call() as string[];
+      console.log(activeOwners);
+      setActiveServiceOwners(activeOwners);
+      const serviceArray : Service[] = [];
+      for (var activeOwner of activeOwners){
+        //ts-ignore
+        serviceArray.push(await ethService?.methods.services(activeOwner).call() as Service);
+      }
+      console.log(serviceArray);
+      setServices(serviceArray);
     } catch (e) {
       console.log(e);
     }
-  };
+  }
 
-  // Pay back existing loan
-  const handlePayLoan = async () => {
+  const revokeContestant = async (serviceAddress: string) => {
     try {
-      await bbseBank?.methods.payLoan().send({
-        value: loan.amount,
+      //ts-ignore
+      await ethService!.methods.revokeContestant(Web3.utils.toChecksumAddress(serviceAddress)).send({
         from: account,
       });
-      setLoan(await bbseBank.methods.borrowers(account).call());
-      setBlockNumber(await web3.eth.getBlockNumber());
-      const balance = await web3.eth.getBalance(account);
-      const tokenBalance = await bbseToken.methods.balanceOf(account).call();
-      setEthBalance(web3.utils.fromWei(balance, "ether"));
-      setBbseBalance(web3.utils.fromWei(tokenBalance, "ether"));
+      const activeOwners = await ethService!.methods.getDepositedAddresses().call() as string[];
+      console.log(activeOwners);
+      setActiveServiceOwners(activeOwners);
+      const serviceArray : Service[] = [];
+      for (var activeOwner of activeOwners){
+        //ts-ignore
+        serviceArray.push(await ethService?.methods.services(activeOwner).call() as Service);
+      }
+      console.log(serviceArray);
+      setServices(serviceArray);
     } catch (e) {
       console.log(e);
     }
-  };
-
-  // Set allowance from user to BBSE Bank
-  const handleApprove = async () => {
-    await bbseToken.methods
-      .approve(
-        bbseBank._address,
-        web3.utils.toWei(newAllowance.toString(), "ether")
-      )
-      .send({
-        from: account,
-      });
-    const allowance = await bbseToken.methods
-      .allowance(account, bbseBank._address)
-      .call();
-    setAllowance(allowance);
-    setNewAllowance(0);
-    setBlockNumber(await web3.eth.getBlockNumber());
   };
 
   // Handler to connect user MetaMask to app
