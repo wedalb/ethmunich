@@ -29,17 +29,29 @@ function handleClick() {
 }
 //{props.description}
 const CardComponent :  React.FC<CardComponent> = (props) => {
-    const [isPopupOpen, setIsPopupOpen] = useState(false);
-
-    const handleCardClick = () => {
-        setIsPopupOpen(true);
+    const [showPopup, setShowPopup] = useState(false);
+    const openPopup = () => {
+        setShowPopup(true);
     };
 
-    const handleClosePopup = () => {
-        setIsPopupOpen(false);
+    const closePopup = () => {
+        setShowPopup(false);
+        console.log("closing")
+
+            //see bugreport https://github.com/ionic-team/ionic-framework/issues/22336
+            const ionOverlay = 'ion-overlay-';
+            for (let i = 1; i < 100; i++) {
+                let overlay = ionOverlay.concat(i.toString());
+                const modal = document.getElementById(overlay) as HTMLIonInputElement;
+                if (modal) {
+                    const parent = modal.parentNode;
+                    parent?.removeChild(modal);
+                    break;
+                }
+            }
     };
     return (
-        <div className="card-container" onClick={handleCardClick}>
+        <div className="card-container" onClick={openPopup}>
             <IonCard className="ion-card" >
             <IonCardHeader className="card-header">
                 <IonGrid>
@@ -65,7 +77,7 @@ const CardComponent :  React.FC<CardComponent> = (props) => {
             <IonCardContent > </IonCardContent>
 
         </IonCard>
-            <PopupComponent isOpen={isPopupOpen} onClose={handleClosePopup} />
+            <PopupComponent isOpen={showPopup} onClose={closePopup}/>
 </div>
 
     );
