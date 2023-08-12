@@ -12,7 +12,7 @@ ion-card {
 }
 
 ion-card-title {
-    --color: #ffff;
+    --color: #f5efc0;
     font-size: 3rem; /* Adjust as needed */
     font-weight: bolder;
     padding-left: 10px;

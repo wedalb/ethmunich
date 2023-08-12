@@ -20,3 +20,23 @@
 IonLabel h3 {
     font-weight: bold !important;
 }
+
+.wallet-button-row{
+    padding: 30px;
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center;     /* Vertically center */
+}
+
+
+.wallet-button {
+    padding: 10px;
+    --border-radius: 12px;
+    --font-size: 0.5rem; /* Adjust this value as per your requirement */
+}
+
+.wallet-button-row {
+    display: flex;
+    justify-content: space-between; /* Distributes children with maximum space in between */
+}
+

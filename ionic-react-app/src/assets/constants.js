@@ -5,7 +5,7 @@ export const COLOR_PALETTE = {
         LIGHT: '#E6E6FA',
         DEFAULT: '#974EC3',
         DARK: '#504099',
-        GRADIENT: 'linear-gradient(90deg, #202020, #2a4061)'
+        GRADIENT: 'linear-gradient(120deg, #251B37, #372948)'
     },
     BLUE: {
         LIGHT: '#ADD8E6',
