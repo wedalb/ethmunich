@@ -1,13 +1,25 @@
 import React from 'react';
-import { IonButton, IonContent, IonHeader, IonModal, IonTitle, IonToolbar, IonInput, IonImg } from '@ionic/react';
+import {
+    IonButton,
+    IonContent,
+    IonHeader,
+    IonModal,
+    IonTitle,
+    IonToolbar,
+    IonInput,
+    IonImg
+} from '@ionic/react';
+
 import './Popup.css'; // Import your custom CSS for styling
 
 interface PopupComponentProps {
     isOpen: boolean;
     onClose: () => void;
+    title: string; // Add title prop
+    subtitle: string; // Add subtitle prop
 }
 
-const PopupComponent: React.FC<PopupComponentProps> = ({ isOpen, onClose }) => {
+const PopupComponent: React.FC<PopupComponentProps> = ({ isOpen, onClose, title, subtitle }) => {
     const [inputValue, setInputValue] = React.useState('');
 
     return (
@@ -20,6 +32,8 @@ const PopupComponent: React.FC<PopupComponentProps> = ({ isOpen, onClose }) => {
             <IonContent>
                 <div className="popup-content">
                     <p>This is the content of the popup.</p>
+                    <p>Title: {title}</p>
+                    <p>Subtitle: {subtitle}</p>
                     <IonInput
                         value={inputValue}
                         placeholder="Enter text"
