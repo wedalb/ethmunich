@@ -15,6 +15,7 @@ import {
 import walletImage from '../assets/images/3dwallet.png';
 import avatarImage from "../assets/images/avatarmock.jpeg";
 import PopupComponent from "./PopupComponent"
+import "./CardComponent.css"
 
 interface CardComponent {
     title: string;
