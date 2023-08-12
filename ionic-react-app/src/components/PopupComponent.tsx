@@ -11,6 +11,7 @@ import {
 } from '@ionic/react';
 
 import './Popup.css'; // Import your custom CSS for styling
+import ButtonPill from "./ButtonPill"
 
 interface PopupComponentProps {
     isOpen: boolean;
@@ -42,7 +43,7 @@ const PopupComponent: React.FC<PopupComponentProps> = ({ isOpen, onClose, title,
                         onIonChange={(e) => setInputValue(e.detail.value!)}
                     />
                     <IonButton onClick={onClose}>Close</IonButton>
-                    <IonButton onClick={onClose}>Claim </IonButton>
+                    <ButtonPill />
                 </div>
             </IonContent>
         </IonModal>
