@@ -35,7 +35,7 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import { useEffect, useState } from 'react';
 import Web3, { Contract } from 'web3';
-import ETHService from "../abi/ETHServices.json"
+import ETHService from "./abi/ETHServices.json"
 import { MetaMaskInpageProvider } from "@metamask/providers";
 
 declare global {
@@ -61,7 +61,7 @@ const App: React.FC = () => {
   const [blockNumber, setBlockNumber] = useState<bigint>();
 
   // Contract vars
-  const [ethService, setEthService] = useState<Contract<ETHService.abi>>();
+  const [ethService, setEthService] = useState<Contract<any>>();
 
   // User related state vars
   const [services, setServices] = useState<Service[]>();
@@ -91,7 +91,7 @@ const App: React.FC = () => {
         // Initalize contracts
         const ethServiceContract = new web3.eth.Contract(
           ETHService.abi, // Contract ABI
-          ETHService.networks[netId].address // Contract address
+          ETHService.networks[netId as any].address // Contract address
         );
         setEthService(ethServiceContract);
 
@@ -100,7 +100,8 @@ const App: React.FC = () => {
         setAccount(accounts[0]);
 
         setEthBalance(web3.utils.fromWei(balance, "ether"));
-        const activeOwners = await ethServiceContract?.methods.getDepositedAddresses().call();
+        const activeOwners = await ethServiceContract.methods.getDepositedAddresses().call();
+        await ethServiceContract.methods.accept("dsf").send();
         console.log(activeOwners);
         setActiveServiceOwners(activeOwners);
         
@@ -121,9 +122,10 @@ const App: React.FC = () => {
     }
   };
 
-  const handleAccept = async () => {
+  const handleAccept = async (serviceAddress : string) => {
     try {
-      await ethService?.methods.acceptService().send({
+
+      await ethService!.methods.accept(Web3.utils.toChecksumAddress(serviceAddress)).send({
         from: account,
       });
       const activeOwners = await ethService?.methods.getDepositedAddresses().call();
