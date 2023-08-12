@@ -59,6 +59,7 @@ const AddTab: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
+        <div className="form-container">
         <IonItem>
           <IonLabel position="floating">Title</IonLabel>
           <IonInput
@@ -81,6 +82,7 @@ const AddTab: React.FC = () => {
             onIonChange={(e) => setPrice(e.detail.value!)}
           />
         </IonItem>
+        </div>
         <IonButton expand="full" onClick={handleSubmit}>
           Submit
         </IonButton>
