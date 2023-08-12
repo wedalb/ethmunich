@@ -14,6 +14,9 @@
 		424B7DC82A87703F0069EA6B /* ethmunichTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424B7DC72A87703F0069EA6B /* ethmunichTests.swift */; };
 		424B7DD22A87703F0069EA6B /* ethmunichUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424B7DD12A87703F0069EA6B /* ethmunichUITests.swift */; };
 		424B7DD42A87703F0069EA6B /* ethmunichUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424B7DD32A87703F0069EA6B /* ethmunichUITestsLaunchTests.swift */; };
+		424B7DE42A87746E0069EA6B /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424B7DE32A87746E0069EA6B /* TabView.swift */; };
+		424B7DE62A8774D30069EA6B /* ServicesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424B7DE52A8774D30069EA6B /* ServicesListView.swift */; };
+		424B7DE82A8774F70069EA6B /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424B7DE72A8774F70069EA6B /* WalletView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		424B7DCD2A87703F0069EA6B /* ethmunichUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ethmunichUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		424B7DD12A87703F0069EA6B /* ethmunichUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ethmunichUITests.swift; sourceTree = "<group>"; };
 		424B7DD32A87703F0069EA6B /* ethmunichUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ethmunichUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		424B7DE32A87746E0069EA6B /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
+		424B7DE52A8774D30069EA6B /* ServicesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesListView.swift; sourceTree = "<group>"; };
+		424B7DE72A8774F70069EA6B /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +100,9 @@
 		424B7DB52A87703E0069EA6B /* ethmunich */ = {
 			isa = PBXGroup;
 			children = (
+				424B7DE22A8770CB0069EA6B /* viewmodel */,
+				424B7DE12A8770C50069EA6B /* model */,
+				424B7DE02A8770BE0069EA6B /* view */,
 				424B7DB62A87703E0069EA6B /* ethmunichApp.swift */,
 				424B7DB82A87703E0069EA6B /* ContentView.swift */,
 				424B7DBA2A87703F0069EA6B /* Assets.xcassets */,
@@ -125,6 +134,30 @@
 				424B7DD32A87703F0069EA6B /* ethmunichUITestsLaunchTests.swift */,
 			);
 			path = ethmunichUITests;
+			sourceTree = "<group>";
+		};
+		424B7DE02A8770BE0069EA6B /* view */ = {
+			isa = PBXGroup;
+			children = (
+				424B7DE32A87746E0069EA6B /* TabView.swift */,
+				424B7DE52A8774D30069EA6B /* ServicesListView.swift */,
+				424B7DE72A8774F70069EA6B /* WalletView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		424B7DE12A8770C50069EA6B /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		424B7DE22A8770CB0069EA6B /* viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = viewmodel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +290,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				424B7DE62A8774D30069EA6B /* ServicesListView.swift in Sources */,
+				424B7DE82A8774F70069EA6B /* WalletView.swift in Sources */,
 				424B7DB92A87703E0069EA6B /* ContentView.swift in Sources */,
+				424B7DE42A87746E0069EA6B /* TabView.swift in Sources */,
 				424B7DB72A87703E0069EA6B /* ethmunichApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
