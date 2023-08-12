@@ -10,10 +10,10 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
-import ServicesTab from './pages/ServicesTab';
+import {add, addOutline, ellipse, gridOutline, square, triangle, wallet, walletOutline} from 'ionicons/icons';
+import JobsTab from './pages/ServicesTab';
 import AddTab from './pages/AddTab';
-import Tab3 from './pages/WalletTab';
+import WalletTab from './pages/WalletTab';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -37,40 +37,40 @@ import './theme/variables.css';
 setupIonicReact();
 
 const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonTabs>
-        <IonRouterOutlet>
-          <Route exact path="/tab1">
-            <ServicesTab />
-          </Route>
-          <Route exact path="/tab2">
-            <AddTab />
-          </Route>
-          <Route path="/tab3">
-            <Tab3 />
-          </Route>
-          <Route exact path="/">
-            <Redirect to="/tab1" />
-          </Route>
-        </IonRouterOutlet>
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon aria-hidden="true" icon={triangle} />
-            <IonLabel>Tab 1</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon aria-hidden="true" icon={ellipse} />
-            <IonLabel>Tab 2</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon aria-hidden="true" icon={square} />
-            <IonLabel>Tab 3</IonLabel>
-          </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
-    </IonReactRouter>
-  </IonApp>
+    <IonApp>
+      <IonReactRouter>
+        <IonTabs>
+          <IonRouterOutlet>
+            <Route exact path="/services">
+              <JobsTab />
+            </Route>
+            <Route exact path="/addService">
+              <AddTab />
+            </Route>
+            <Route path="/wallet">
+              <WalletTab />
+            </Route>
+            <Route exact path="/">
+              <Redirect to="/services" />
+            </Route>
+          </IonRouterOutlet>
+          <IonTabBar slot="bottom">
+            <IonTabButton tab="services" href="/services">
+              <IonIcon aria-hidden="true" icon={gridOutline} />
+              <IonLabel>Service</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="addService" href="/addService">
+              <IonIcon aria-hidden="true" icon={addOutline} />
+              <IonLabel>Add Service</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="wallet" href="/wallet">
+              <IonIcon aria-hidden="true" icon={walletOutline} />
+              <IonLabel>Wallet</IonLabel>
+            </IonTabButton>
+          </IonTabBar>
+        </IonTabs>
+      </IonReactRouter>
+    </IonApp>
 );
 
 export default App;

@@ -16,7 +16,7 @@ const AddTab: React.FC = () => {
             <IonTitle size="large">Tab 2</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer name="Tab 2 page" />
+        <ExploreContainer name="Add Service" />
       </IonContent>
     </IonPage>
   );
