@@ -87,14 +87,14 @@ const AddTab = (props: AddTabProps) => {
           />
         </IonItem>
         </div>
-        <IonButton expand="full" onClick={() => props.handleSubmit(title, description, price)}>
+        <IonButton expand="full" onClick={() => {props.handleSubmit(title, description, price); setShowToast(true);}}>
           Submit
         </IonButton>
       </IonContent>
       <IonToast
         isOpen={showToast}
         onDidDismiss={() => setShowToast(false)}
-        message="Submission successful"
+        message="Proceed to Wallet"
         position='top'
         duration={2000} // Duration in milliseconds
       />

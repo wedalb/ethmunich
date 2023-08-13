@@ -40,21 +40,10 @@ const CardComponent: React.FC<CardComponentProps> = (props) => {
     const closePopup = () => {
         setShowPopup(false);
         console.log("closing");
-
-        // see bugreport https://github.com/ionic-team/ionic-framework/issues/22336
-        const ionOverlay = 'ion-overlay-';
-        for (let i = 1; i < 100; i++) {
-            let overlay = ionOverlay.concat(i.toString());
-            const modal = document.getElementById(overlay) as HTMLIonInputElement;
-            if (modal) {
-                const parent = modal.parentNode;
-                parent?.removeChild(modal);
-                break;
-            }
-        }
     };
 
     return (
+        <>
         <div className="card-container" onClick={openPopup}>
             <IonCard className="ion-card">
                 <IonCardHeader className="card-header">
@@ -80,9 +69,10 @@ const CardComponent: React.FC<CardComponentProps> = (props) => {
                 </IonCardHeader>
                 <IonCardContent> </IonCardContent>
             </IonCard>
+             </div>
             <PopupComponent isOpen={showPopup} onClose={closePopup}  title={props.title} subtitle={props.subtitle} isOwner={props.isOwner} address={props.address} 
             onAccept={props.onAccept} onCancel={props.onCancel} onClaim={props.onClaim} onRevoke={props.onRevoke} isClaimed={props.isClaimed} currentAccount={props.currentAccount} contestant={props.contestant}/>
-        </div>
+       </>
     );
 }
 
