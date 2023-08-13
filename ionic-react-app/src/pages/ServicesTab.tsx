@@ -79,7 +79,7 @@ const ServicesTab = (props: ServicesTabProps) => {
 
           <IonRow>
               <IonCol className="next-to-map-container">
-                      <IonCol className="lottie-text-container">
+                      <IonCol className="lottie-text-container" style={{marginTop: "-5%"}}>
                           <IonText className="centered-text">See who needs help in your local community</IonText>
                       </IonCol>
                       <IonCol>

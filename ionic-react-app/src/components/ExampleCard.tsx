@@ -1,5 +1,13 @@
 import React from 'react';
-import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/react';
+import {
+    IonCard,
+    IonCardContent,
+    IonCardHeader,
+    IonCardSubtitle,
+    IonCardTitle, IonItem,
+    IonList, IonSelect,
+    IonSelectOption
+} from '@ionic/react';
 
 import './ExampleCard.css';
 

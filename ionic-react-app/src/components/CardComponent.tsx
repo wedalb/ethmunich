@@ -57,6 +57,7 @@ const CardComponent: React.FC<CardComponentProps> = (props) => {
     };
 
     return (
+        <>
         <div onClick={openPopup}>
             <IonCard>
                 <IonRow className="cards-row">
@@ -71,12 +72,13 @@ const CardComponent: React.FC<CardComponentProps> = (props) => {
                     </IonCol>
                 </IonRow>
             </IonCard>
+        </div>
 
             <PopupComponent isOpen={showPopup} onClose={closePopup}  title={props.title} subtitle={props.subtitle} isOwner={props.isOwner} address={props.address} 
             onAccept={props.onAccept} onCancel={props.onCancel} onClaim={props.onClaim} onRevoke={props.onRevoke} isClaimed={props.isClaimed} currentAccount={props.currentAccount} contestant={props.contestant}/>
+        </>
+            );
 
-        </div>
-    );
 }
 
 export default CardComponent;

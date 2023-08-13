@@ -68,11 +68,12 @@ const WalletTab = (props: WalletTabProps) => {
                                 </IonButton>
                             </IonCol>
                         </IonRow>
+
                         <IonRow>
                             <IonCol>
                                 <div className="card-container">
                                     <ExampleCard address={props.currentAccount} ethBalance={props.ethBalance} karmaBalance={props.krmBalance}/>
-                                    <img src={walletImage} className="overlay-image" alt="3d Wallet"/>
+                                    {/**} <img src={walletImage} className="overlay-image" alt="3d Wallet"/>/**/}
                                 </div>
                             </IonCol>
                         </IonRow>

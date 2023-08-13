@@ -39,7 +39,6 @@
 .wallet-card-title{
     font-size: 3rem; /* Adjust as needed */
     font-weight: bolder;
-    padding-top : 10px;
     padding-left: 10px;
     background: linear-gradient(20deg, #de6c5b, #edc13e);
     background-clip: text;
@@ -51,7 +50,6 @@
     --color: #ff9286;
     font-size: 0.8rem; /* Adjust as needed */
     font-weight: normal;
-    padding-top: 10px;
     padding-left: 10px;
 }
 .large-number {
@@ -73,4 +71,30 @@
 
 .wallet-card{
     border-radius: 15px;
+}
+
+.wallet-selector-list{
+    color: #ff9286;
+    background: #151726;
+    --background: #151726; /* Change to your desired color */
+
+
+}
+
+.wallet-selector-item{
+    --background: #151726;
+    color: #ff9286;
+}
+
+.wallet-selector-select {
+    color: #ff9286;
+    --background: #151726; /* Change to your desired color */
+
+    font-size: 0.8rem; /* Adjust as desired for smaller font */
+}
+
+.wallet-selector-selectoption{
+    --background: #151726; /* Change to your desired color */
+    --background-focused: #ff9286;
+
 }

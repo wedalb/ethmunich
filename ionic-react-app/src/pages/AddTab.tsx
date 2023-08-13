@@ -12,10 +12,11 @@ import {
   IonItem,
   IonLabel,
   IonButton,
-  IonToast, IonCol, IonRow, IonText,
+  IonToast, IonCol, IonRow, IonText, IonIcon,
 } from '@ionic/react';
 import Lottie from "lottie-react";
 import transactionLottie from "../assets/lotties/transactionLottie.json";
+import {arrowForward} from "ionicons/icons";
 
 export interface AddTabProps {
   handleSubmit: (title: string, description: string, price: string) => void;
@@ -54,7 +55,10 @@ const AddTab = (props: AddTabProps) => {
                 Add information about the job you want to add. Let your community members know how much Karmapoints they receive for helping you! Every transaction is secured and approved by both parties and secured trough decentralized networks
               </IonText>
             </IonCol>
-            <IonButton className="advertisement-button" fill="outline">Want to find out more?</IonButton>
+            <IonButton className="advertisement-button" fill="outline">
+              Want to find out more?
+              <IonIcon slot="end" icon={arrowForward}></IonIcon>
+            </IonButton>
 
           </IonCol>
 
@@ -91,7 +95,7 @@ const AddTab = (props: AddTabProps) => {
       <IonToast
         isOpen={showToast}
         onDidDismiss={() => setShowToast(false)}
-        message="Submission successful"
+        message="Please confirm through MetaMask :)"
         position='top'
         duration={2000} // Duration in milliseconds
       />

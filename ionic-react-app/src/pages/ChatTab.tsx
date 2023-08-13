@@ -1,22 +1,36 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+// ChatMock.tsx
+
+import React from 'react';
+import {
+    IonPage,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    IonItem,
+    IonLabel,
+} from '@ionic/react';
 import './ChatTab.css';
-import React from "react";
 
 const ChatTab: React.FC = () => {
     return (
         <IonPage>
             <IonHeader>
                 <IonToolbar>
-                    <IonTitle>Chatting</IonTitle>
+                    <IonTitle>Chat Mock</IonTitle>
                 </IonToolbar>
             </IonHeader>
-            <IonContent fullscreen>
-                <IonHeader collapse="condense">
-                    <IonToolbar>
-                        <IonTitle size="large">Tab 2</IonTitle>
-                    </IonToolbar>
-                </IonHeader>
+
+            <IonContent>
+                <div className="message other">
+                    <IonLabel>Hey! How are you?</IonLabel>
+                </div>
+                <div className="message me">
+                    <IonLabel>I'm good! Thanks for asking. How about you?</IonLabel>
+                </div>
+                <div className="message other">
+                    <IonLabel>Doing great, thanks!</IonLabel>
+                </div>
             </IonContent>
         </IonPage>
     );

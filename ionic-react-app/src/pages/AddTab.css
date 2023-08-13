@@ -30,6 +30,7 @@
 .add-service-centered-text-col {
   font-size: 3vw;
   display: flex;
+  margin-top: 30px;
   align-items: center;    /* This vertically centers the child elements */
   justify-content: flex-start; /* This horizontally centers the child elements */
 }
@@ -41,7 +42,7 @@
 .advertisement-button{
   width: 200px;  /* Or whatever width you prefer */
 
-  margin: 5px;
+  margin: 10px;
   --border-radius: 8px;
   text-transform: none;
 
