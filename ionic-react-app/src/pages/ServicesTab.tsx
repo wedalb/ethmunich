@@ -13,15 +13,21 @@ import ExploreContainer from '../components/ExploreContainer';
 import CardComponent from '../components/CardComponent';
 import './ServicesTab.css';
 import MyMap from "../components/MapsView";
+import { Service } from '../App';
 import communityLottie from "../assets/lotties/communityLottie.json";
 import Lottie from "lottie-react";
 import React from "react";
 
-
-const items = {
+interface ServicesTabProps {
+  services: Service[];
+  currentAccount: string;
+  onAccept: (serviceAddress: string) => void;
+  onCancel: (serviceAddress: string) => void;
+  onRevoke: (serviceAddress: string) => void;
+  onClaim: (serviceAddress: string) => void;
 
 }
-const ServicesTab: React.FC = () => {
+const ServicesTab = (props: ServicesTabProps) => {
     const items = [
         { title: 'Fix Bench in your local park', subtitle: 'Someone vandalized the bench here.' },
         { title: 'Repair Piping in the Animal Shelter', subtitle: 'The kitties are drippin\'  '},
@@ -73,9 +79,17 @@ const ServicesTab: React.FC = () => {
           </IonRow>
 
           <IonRow className="card-list-container">
-              {items.map((item, index) => (
-                  <CardComponent key={index} title={item.title} subtitle={item.subtitle} description={"Test"} number={"+0.025ETH"} />
-              ))}
+              {props.services ? props.services.map((item, index) => (
+                  <CardComponent key={index} title={item.title} subtitle={item.description} description={"Test"} number={item.amount.toString()} address={item.owner} isOwner={item.owner==props.currentAccount}
+                  onAccept={() => props.onAccept(item.owner)} onCancel={() => props.onCancel(item.owner)} onClaim={() => props.onClaim(item.owner)} onRevoke={() => props.onRevoke(item.owner)}
+                  isClaimed={item.contestant!=='0x0000000000000000000000000000000000000000'} currentAccount={props.currentAccount} contestant={item.contestant}/>
+              ))
+            :
+            items.map((item, index) => (
+                <CardComponent key={index} title={item.title} subtitle={item.subtitle} description={"Test"} number={"0.1"} address={"0x123"} isOwner={false}
+                onAccept={() => props.onAccept('')} onCancel={() => props.onCancel('')} onClaim={() => props.onClaim('')} onRevoke={() => props.onRevoke('')}
+                isClaimed={false} currentAccount={props.currentAccount} contestant=''/>
+                ))}
           </IonRow>
       </IonContent>
     </IonPage>

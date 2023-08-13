@@ -2,7 +2,13 @@ import React, { useState } from 'react';
 import { IonButton } from '@ionic/react';
 import './ButtonPill.css'; // Create a CSS file for styling
 
-const ButtonPill: React.FC = () => {
+export interface ButtonPillProps {
+    pressedText: string;
+    unpressedText: string;
+    handlePress: () => void;
+}
+
+const ButtonPill = (props: ButtonPillProps) => {
     const [isPressed, setIsPressed] = useState(false);
 
     const handlePress = () => {
@@ -12,10 +18,10 @@ const ButtonPill: React.FC = () => {
     return (
         <IonButton
             className={`button-pill ${isPressed ? 'pressed' : ''}`}
-            onClick={handlePress}
+            onClick={props.handlePress}
             fill="clear"
         >
-            {isPressed ? 'Unclaim' : 'Claim Reward'}
+            {isPressed ? props.pressedText : props.unpressedText}
         </IonButton>
     );
 };

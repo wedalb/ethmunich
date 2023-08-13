@@ -21,6 +21,15 @@ interface CardComponentProps {
     subtitle: string;
     description: string; // Currently not being used in the component
     number: string;
+    address: string; // Currently not being used in the component
+    isOwner: boolean;
+    onAccept: () => void;
+    onCancel: () => void;
+    onRevoke: () => void;
+    onClaim: () => void;
+    isClaimed: boolean;
+    currentAccount: string;
+    contestant: string;
 }
 
 const CardComponent: React.FC<CardComponentProps> = (props) => {
@@ -62,7 +71,12 @@ const CardComponent: React.FC<CardComponentProps> = (props) => {
                     </IonCol>
                 </IonRow>
             </IonCard>
+<<<<<<< HEAD
             <PopupComponent isOpen={showPopup} onClose={setShowPopup}  title={props.title} subtitle={props.subtitle} />
+=======
+            <PopupComponent isOpen={showPopup} onClose={closePopup}  title={props.title} subtitle={props.subtitle} isOwner={props.isOwner} address={props.address} 
+            onAccept={props.onAccept} onCancel={props.onCancel} onClaim={props.onClaim} onRevoke={props.onRevoke} isClaimed={props.isClaimed} currentAccount={props.currentAccount} contestant={props.contestant}/>
+>>>>>>> backend
         </div>
     );
 }
