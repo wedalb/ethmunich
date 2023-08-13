@@ -4,12 +4,18 @@ import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle }
 import { COLOR_PALETTE } from "../assets/constants.js"; // Adjust the path accordingly
 import './ExampleCard.css';
 
-const ExampleCard: React.FC = () => {
+export interface ExampleCardProps {
+    ethBalance: string;
+    karmaBalance: string;
+    address: string;
+}
+
+const ExampleCard = (props: ExampleCardProps) => {
     return (
         <IonCard style={{ background: COLOR_PALETTE.VIOLET.GRADIENT }}>
             <IonCardHeader>
-                <IonCardSubtitle>Your Wallet</IonCardSubtitle>
-                <IonCardTitle>345 Points</IonCardTitle>
+                <IonCardSubtitle>{props.address}</IonCardSubtitle>
+                <IonCardTitle>{`${props.ethBalance} ETH     ${props.karmaBalance} KRM`}</IonCardTitle>
             </IonCardHeader>
 
             <IonCardContent>

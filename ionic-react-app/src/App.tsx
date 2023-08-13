@@ -43,6 +43,7 @@ import './theme/variables.css';
 import { useEffect, useState } from 'react';
 import Web3, { Contract } from 'web3';
 import ETHService from "./abi/ETHServices.json"
+import KRMToken from "./abi/KarmaToken.json"
 import { MetaMaskInpageProvider } from "@metamask/providers";
 import SettingsPage from "./pages/SettingsPage";
 
@@ -70,6 +71,7 @@ const App: React.FC = () => {
 
   // Contract vars
   const [ethService, setEthService] = useState<Contract<any>>();
+  const [krmToken, setKrmToken] = useState<Contract<any>>();
 
   // User related state vars
   const [services, setServices] = useState<Service[]>();
@@ -78,6 +80,7 @@ const App: React.FC = () => {
 
 
   const [ethBalance, setEthBalance] = useState<string>();
+  const [krmBalance, setKrmBalance] = useState<string>();
   const [isWalletConnected, setIsWalletConnected] = useState(false);
 
   /*   Check MetaMask exists and user account connected
@@ -101,13 +104,24 @@ const App: React.FC = () => {
           ETHService.abi, // Contract ABI
           ETHService.networks[netId].address // Contract address
         );
+        const krmTokenContract = new web3.eth.Contract(
+          KRMToken.abi, // Contract ABI
+          KRMToken.networks[netId].address // Contract address
+        );
         setEthService(ethServiceContract);
+        setKrmToken(krmTokenContract);
+
 
         // Initialize user account
         const balance = await web3.eth.getBalance(accounts[0]);
         setAccount(accounts[0]);
 
         setEthBalance(web3.utils.fromWei(balance, "ether"));
+        const tokenBalance = await krmTokenContract.methods
+          .balanceOf(accounts[0])
+          .call() as string;
+        setKrmBalance(tokenBalance);
+
         const activeOwners = await ethServiceContract.methods.getDepositedAddresses().call() as string[];
         console.log(activeOwners);
         setActiveServiceOwners(activeOwners);
@@ -129,6 +143,58 @@ const App: React.FC = () => {
       return;
     }
   };
+
+  const buyKarma = async (amount: string) => {
+    try {
+      //ts-ignore
+      await krmToken?.methods.mintTokens().send({
+        from: account,
+        value: web3?.utils.toWei(amount, "ether"),
+      });
+      const tokenBalance = await krmToken?.methods
+        .balanceOf(account)
+        .call() as string;
+      setKrmBalance(tokenBalance);
+      const ethBalance = await web3?.eth.getBalance(account);
+      setEthBalance(web3?.utils.fromWei(ethBalance!, "ether"));
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const transferKarma = async (amount: string, to: string) => {
+    try {
+      //ts-ignore
+      await krmToken?.methods.transfer(to, amount).send({
+        from: account,
+      });
+      const tokenBalance = await krmToken?.methods
+        .balanceOf(account)
+        .call() as string;
+      setKrmBalance(tokenBalance);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const withdrawKarma = async (amount: string) => {
+    try {
+      //ts-ignore
+      await krmToken?.methods.exchangeTokens(amount).send({
+        from: account,
+      });
+      const tokenBalance = await krmToken?.methods
+        .balanceOf(account)
+        .call() as string;
+      setKrmBalance(tokenBalance);
+      const ethBalance = await web3?.eth.getBalance(account);
+      setEthBalance(web3?.utils.fromWei(ethBalance!, "ether"));
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+
 
   const handleAccept = async (serviceAddress : string) => {
     try {
@@ -278,7 +344,7 @@ const App: React.FC = () => {
               <AddTab handleSubmit={handleSubmit}/>
             </Route>
             <Route path="/wallet">
-              <WalletTab />
+              <WalletTab currentAccount={account!} ethBalance={ethBalance!} krmBalance={krmBalance!} buy={buyKarma} transfer={transferKarma} withdraw={withdrawKarma}/>
             </Route>
             <Route exact path="/chat">
               <ChatTab />
