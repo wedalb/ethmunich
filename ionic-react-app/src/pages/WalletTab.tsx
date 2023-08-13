@@ -46,7 +46,6 @@ const WalletTab = (props: WalletTabProps) => {
     return (
         <IonPage>
             <IonContent fullscreen>
-
                 <IonGrid>
                     <IonCol>
                         {/* Avatar Row */}
