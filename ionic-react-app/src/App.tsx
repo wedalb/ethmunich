@@ -41,13 +41,14 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import SettingsPage from "./pages/SettingsPage";
+import './App.css'
 
 setupIonicReact();
 
 const App: React.FC = () => (
     <IonApp>
       <IonReactRouter>
-        <IonTabs>
+        <IonTabs className="custom-tabbar">
           <IonRouterOutlet>
             <Route exact path="/services">
               <JobsTab />

@@ -16,7 +16,7 @@ import './WalletTab.css';
 import avatarImage from '../assets/images/avatarmock.jpeg';
 import walletImage from '../assets/images/3dwallet.png';
 
-import ExampleCard from "../components/ExampleCard";
+import ExampleCard from "../components/WalletCard";
 import {cash, send, settingsSharp} from "ionicons/icons";
 import { useHistory } from 'react-router-dom';
 import DynamicLineChart from "../components/DynamicLineChart";
@@ -73,7 +73,6 @@ const WalletTab: React.FC = () => {
                             </IonButton>
                         </IonRow>
                         <IonRow>
-                        <DynamicLineChart/>
                         </IonRow>
                     </IonCol>
                 </IonGrid>

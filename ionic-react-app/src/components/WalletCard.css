@@ -36,16 +36,20 @@
     justify-content: flex-end;
 }
 
-ion-card-title {
-    --color: #fff;
-    font-size: 2rem; /* Adjust as needed */
+.wallet-card-title{
+    font-size: 3rem; /* Adjust as needed */
     font-weight: bolder;
-    padding : 10px;
+    padding-top : 10px;
+    padding-left: 10px;
+    background: linear-gradient(20deg, #de6c5b, #edc13e);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
-ion-card-subtitle {
-    --color: #fff65f;
-    font-size: 1.5rem; /* Adjust as needed */
+.wallet-card-subtitle {
+    --color: #ff9286;
+    font-size: 0.8rem; /* Adjust as needed */
     font-weight: normal;
     padding-top: 10px;
     padding-left: 10px;
@@ -53,8 +57,9 @@ ion-card-subtitle {
 .large-number {
     font-size: 32px; /* Adjust font size as needed */
     font-weight: bold; /* Adjust font weight as needed */
-    color: #F2B47E; /* Adjust color as needed */
     text-align: right;
+    /* Setting the background to a linear gradient */
+
 }
 .number-col {
     display: flex;

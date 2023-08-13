@@ -15,16 +15,20 @@
 
 .lottie-text-container {
     display: flex;
+    line-height: 1;
     align-items: center; /* Vertically center the text */
     justify-content: center; /* Horizontally center the text */
 }
 
 .centered-text {
-    font-family: Optima;
+    font-family: Helvetica;
     font-weight: bolder; /* Make text bold */
     font-size: 2rem;   /* Make text big, adjust size as needed */
     text-align: center;
-    color: #8758FF;
+    background: linear-gradient(30deg, #de6c5b, #edc13e);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
 
 }
 
@@ -34,5 +38,16 @@
     border-radius: 30px; /* This gives you the rounded corners */
     overflow: hidden; /* This ensures the content doesn't spill out of the rounded rectangle */
 
+}
+
+.rectangle {
+    width: 100%;
+    height: 100%;
+    background-color: #3498db; /* or any color you prefer */
+}
+.custom-col {
+    border-radius: 20px;
+    height: 110px; /* Adjust as needed */
+    width: 100px;
 }
 

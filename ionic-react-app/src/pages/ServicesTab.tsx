@@ -39,6 +39,9 @@ const ServicesTab: React.FC = () => {
 
   return (
     <IonPage>
+        <IonHeader>
+
+        </IonHeader>
       <IonContent fullscreen>
           <IonRow> {/* Lottie Animation*/}
               <IonCard className="lottie-card">
@@ -61,6 +64,7 @@ const ServicesTab: React.FC = () => {
           <IonRow>
               <IonCol>
                   <IonRow>
+
                   </IonRow>
               </IonCol>
               <IonRow className="map-container">

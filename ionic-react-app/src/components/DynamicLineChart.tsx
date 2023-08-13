@@ -28,32 +28,52 @@ export const options = {
     responsive: true,
     plugins: {
         legend: {
-            position: 'top' as const,
+            display: false, // This line hides the legend
         },
         title: {
             display: true,
-            text: 'INSERT TITLE ',
         },
     },
+    scales: {
+        x: {
+            display: true,
+            ticks: {
+                display: true, // Display the ticks (labels) on the x-axis
+                color: 'rgb(130, 105, 101)' // Set the color of the ticks
+            },
+            grid: {
+                display: false, // Hide the grid lines
+            },
+        },
+        y: {
+            display: true,
+            ticks: {
+                display: true, // Display the ticks (labels) on the y-axis
+                color: 'rgb(130, 105, 101)' // Set the color of the ticks
+            },
+            grid: {
+                display: false, // Hide the grid lines
+            },
+        }
+    }
 };
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+
+
+
+
+const labels = ['2019', '2020', '2021', '2022', '2023'];
 
 export const data = {
     labels,
     datasets: [
         {
-            label: 'ETH Transactions',
             data: labels.map(() => faker.datatype.number({ min: 0, max: 10 })),
-            borderColor: 'rgb(255, 99, 132)',
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
-        },
-        {
-            label: 'KarmaCoin Transactions',
-            data: labels.map(() => faker.datatype.number({ min: 0, max: 10 })),
-            borderColor: 'rgb(53, 162, 235)',
-            backgroundColor: 'rgba(53, 162, 235, 0.5)',
-        },
+            borderColor: 'rgb(255, 146, 134)',
+            backgroundColor: 'rgb(255, 146, 134)',
+            tension: 0.4 // Add this line
+
+        }
     ],
 };
 
