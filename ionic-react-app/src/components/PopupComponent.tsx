@@ -53,10 +53,7 @@ const PopupComponent: React.FC<PopupComponentProps> = (props: PopupComponentProp
                         placeholder="Enter text"
                         onIonChange={(e) => setInputValue(e.detail.value!)}
                     />
-<<<<<<< HEAD
-                    <IonButton onClick={onClose(false)}>Close</IonButton>
-                    <ButtonPill />
-=======
+
                     <IonButton onClick={props.onClose}>Close</IonButton>
                     {
                         props.isOwner ? (<>
@@ -69,7 +66,6 @@ const PopupComponent: React.FC<PopupComponentProps> = (props: PopupComponentProp
                             }
                         </>)
                     }
->>>>>>> backend
                 </div>
             </IonContent>
         </IonModal>

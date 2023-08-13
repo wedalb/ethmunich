@@ -2,6 +2,47 @@
 .form-container {
   display: flex;
   flex-direction: column;
-  gap: 16px; /* Adjust the value as needed */
-  padding: 16px; /* Optional padding */
+  gap: 30px;
+
+  padding: 20px;
+}
+
+.custom-forms-container {
+  padding-left: 7px;
+  border-radius: 20px;
+  --background: #151726;
+  --box-shadow: none;
+  --border-width: 0;
+  --border-style: none;
+  color: #d49e7f;
+}
+
+.forms-button{
+  border-radius: 50px;
+  margin: 25px;
+  color: #0a0c17;
+  background-image: linear-gradient(30deg, #de6c5b, #edc13e);
+  --background: none;
+}
+.add-service-explanation-row{
+
+}
+
+.add-service-centered-text-col {
+  display: flex;
+  align-items: center;    /* This vertically centers the child elements */
+  justify-content: flex-start; /* This horizontally centers the child elements */
+}
+
+.add-service-description{
+  display: block;
+}
+
+.advertisement-button{
+  width: 200px;  /* Or whatever width you prefer */
+
+  margin: 5px;
+  --border-radius: 8px;
+  text-transform: none;
+
 }

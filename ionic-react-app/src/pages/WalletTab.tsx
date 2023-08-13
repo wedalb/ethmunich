@@ -19,12 +19,9 @@ import walletImage from '../assets/images/3dwallet.png';
 import ExampleCard from "../components/WalletCard";
 import {cash, send, settingsSharp} from "ionicons/icons";
 import { useHistory } from 'react-router-dom';
-<<<<<<< HEAD
 import DynamicLineChart from "../components/DynamicLineChart";
-=======
 import { useState } from 'react';
 import BuyWithdrawPopup from '../components/BuyWithdrawPopup';
->>>>>>> backend
 
 export interface WalletTabProps { 
     currentAccount: string;
@@ -83,19 +80,17 @@ const WalletTab = (props: WalletTabProps) => {
                         <IonRow className="wallet-button-row">
                             <IonCol>
                             <IonButton className="wallet-button" size="large" onClick={() => {setShowBuyWithdrawPopup(true); setPopupType("buy")}}>
-                                <IonIcon className="custom-icon-size" slot="start" icon={cash}></IonIcon>
+                                <IonIcon className="wallet-button-icon" slot="start" icon={cash}></IonIcon>
                                 Buy
                             </IonButton>
                             <IonButton className="wallet-button" size="large" onClick={() => {setShowBuyWithdrawPopup(true); setPopupType("withdraw")}}>
-                                <IonIcon className="custom-icon-size" slot="start" icon={cash}></IonIcon>
+                                <IonIcon className="wallet-button-icon" slot="start" icon={cash}></IonIcon>
                                 Withdraw
                             </IonButton>
-                            </IonCol>
-                            <IonCol>
-                            <IonButton className="wallet-button" size="large"onClick={() => {setShowBuyWithdrawPopup(true); setPopupType("transfer")}}>
-                                <IonIcon className="custom-icon-size" slot="start" icon={send}></IonIcon>
-                                Transfer
-                            </IonButton>
+                                <IonButton className="wallet-button" size="large"onClick={() => {setShowBuyWithdrawPopup(true); setPopupType("transfer")}}>
+                                    <IonIcon className="wallet-button-icon" slot="start" icon={send}></IonIcon>
+                                    Transfer
+                                </IonButton>
                             </IonCol>
                         </IonRow>
                         <IonRow>

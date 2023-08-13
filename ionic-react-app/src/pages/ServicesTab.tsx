@@ -45,23 +45,32 @@ const ServicesTab = (props: ServicesTabProps) => {
 
   return (
     <IonPage>
-        <IonHeader>
-
-        </IonHeader>
       <IonContent fullscreen>
+          <IonRow>
+              <IonCol>
+                  <IonTitle className="custom-headline">Service Desk</IonTitle>
+              </IonCol>
+          </IonRow>
           <IonRow> {/* Lottie Animation*/}
               <IonCard className="lottie-card">
                   <IonCardContent>
                       <IonRow >
                           {/* Column for the Lottie animation */}
-                          <IonCol size="6">
+                          <IonCol>
                               <Lottie className="lottie-animation" animationData={communityLottie} />
                           </IonCol>
 
-                          {/* Column for the text */}
-                          <IonCol className="lottie-text-container">
-                              <IonText className="centered-text">Get help in your community</IonText>
+                          <IonCol>
+                              {/* Column for the text */}
+                              <IonCol className="lottie-text-container">
+                                  <IonText className="centered-text">Helpout in your local Community</IonText>
+                              </IonCol>
+                              <IonCol><IonText className="description-text">
+                                  Get better Karma by helping out your community and earn Karmapoints for that. Helpout your local community and be a better person
+                              </IonText>
+                              </IonCol>
                           </IonCol>
+
                       </IonRow>
                   </IonCardContent>
               </IonCard>

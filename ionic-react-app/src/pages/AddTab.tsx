@@ -1,26 +1,5 @@
 import ExploreContainer from '../components/ExploreContainer';
 import './AddTab.css';
-
-// const AddTab: React.FC = () => {
-//   return (
-//     <IonPage>
-//       <IonHeader>
-//         <IonToolbar>
-//           <IonTitle>Add Service</IonTitle>
-//         </IonToolbar>
-//       </IonHeader>
-//       <IonContent fullscreen>
-//         <IonHeader collapse="condense">
-//           <IonToolbar>
-//             <IonTitle size="large">Tab 2</IonTitle>
-//           </IonToolbar>
-//         </IonHeader>
-//       </IonContent>
-//     </IonPage>
-//   );
-// };
-
-
 import React, { useState } from 'react';
 import {
   IonContent,
@@ -33,8 +12,10 @@ import {
   IonItem,
   IonLabel,
   IonButton,
-  IonToast,
+  IonToast, IonCol, IonRow, IonText,
 } from '@ionic/react';
+import Lottie from "lottie-react";
+import transactionLottie from "../assets/lotties/transactionLottie.json";
 
 export interface AddTabProps {
   handleSubmit: (title: string, description: string, price: string) => void;
@@ -57,36 +38,44 @@ const AddTab = (props: AddTabProps) => {
 
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Add Service</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-<<<<<<< HEAD
-      <IonContent fullscreen>git
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Tab 2</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-=======
-      <IonContent className="ion-padding">
+      <IonContent>
+        <IonRow>
+          <IonCol>
+            <IonTitle className="custom-headline">Add a new job</IonTitle>
+          </IonCol>
+        </IonRow>
+        <IonRow className="add-service-explanation-row">
+          <IonCol>
+            <Lottie className="lottie2-animation" animationData={transactionLottie} />
+          </IonCol>
+          <IonCol>
+            <IonCol className="add-service-centered-text-col">
+              <IonText className="add-service-description">
+                Add information about the job you want to add. Let your community members know how much Karmapoints they receive for helping you! Every transaction is secured and approved by both parties and secured trough decentralized networks
+              </IonText>
+            </IonCol>
+            <IonButton className="advertisement-button" fill="outline">Want to find out more?</IonButton>
+
+          </IonCol>
+
+        </IonRow>
+
         <div className="form-container">
-        <IonItem>
+        <IonItem className="custom-forms-container">
           <IonLabel position="floating">Title</IonLabel>
           <IonInput
             value={title}
             onIonChange={(e) => setTitle(e.detail.value!)}
           />
         </IonItem>
-        <IonItem>
+        <IonItem className="custom-forms-container">
           <IonLabel position="floating">Description</IonLabel>
           <IonTextarea
             value={description}
             onIonChange={(e) => setDescription(e.detail.value!)}
           />
         </IonItem>
-        <IonItem>
+        <IonItem className="custom-forms-container">
           <IonLabel position="floating">Price</IonLabel>
           <IonInput
             type="number"
@@ -95,10 +84,9 @@ const AddTab = (props: AddTabProps) => {
           />
         </IonItem>
         </div>
-        <IonButton expand="full" onClick={() => props.handleSubmit(title, description, price)}>
+        <IonButton className="forms-button"  size="large" expand="block" shape="round" onClick={() => props.handleSubmit(title, description, price)}>
           Submit
         </IonButton>
->>>>>>> backend
       </IonContent>
       <IonToast
         isOpen={showToast}

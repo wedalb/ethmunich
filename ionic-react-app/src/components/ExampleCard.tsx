@@ -1,7 +1,6 @@
 import React from 'react';
 import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/react';
-// @ts-ignore
-import { COLOR_PALETTE } from "../assets/constants.js"; // Adjust the path accordingly
+
 import './ExampleCard.css';
 
 export interface ExampleCardProps {
@@ -12,7 +11,7 @@ export interface ExampleCardProps {
 
 const ExampleCard = (props: ExampleCardProps) => {
     return (
-        <IonCard style={{ background: COLOR_PALETTE.VIOLET.GRADIENT }}>
+        <IonCard>
             <IonCardHeader>
                 <IonCardSubtitle>{props.address}</IonCardSubtitle>
                 <IonCardTitle>{`${props.ethBalance} ETH     ${props.karmaBalance} KRM`}</IonCardTitle>

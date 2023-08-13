@@ -5,12 +5,15 @@
 }
 
 .lottie-animation{
-    max-height: 200px;
+    width: 200px;
+    padding-right: 5px;
 
 }
 
 .lottie-card{
     border-radius: 15px;
+    --background: linear-gradient(30deg, #24243b,   #0e101c);
+
 }
 
 .lottie-text-container {
@@ -21,15 +24,27 @@
 }
 
 .centered-text {
+    margin-top: 10px;
     font-family: Helvetica;
     font-weight: bolder; /* Make text bold */
-    font-size: 2rem;   /* Make text big, adjust size as needed */
+    font-size: 1.5rem;   /* Make text big, adjust size as needed */
     text-align: center;
     background: linear-gradient(30deg, #de6c5b, #edc13e);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
+    display: block;
+}
 
+.description-text{
+    font-size: 12px; /* Adjust as needed */
+    text-align: left; /* If you want the text to be centered */
+    display: block;
+    line-height: 1.4em;    /* This is an example value. You might need to adjust */
+    max-height: 4.2em;    /* 3 lines at 1.4em each */
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;  /* Truncate after 3 lines */
+    overflow: hidden;
 }
 
 .map-container {
@@ -51,3 +66,10 @@
     width: 100px;
 }
 
+.custom-headline{
+    margin-top: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-weight: bolder;
+    font-size: xxx-large;
+}
