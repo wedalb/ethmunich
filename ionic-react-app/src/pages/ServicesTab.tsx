@@ -63,11 +63,12 @@ const ServicesTab = (props: ServicesTabProps) => {
                           <IonCol>
                               {/* Column for the text */}
                               <IonCol className="lottie-text-container">
-                                  <IonText className="centered-text">Helpout in your local Community</IonText>
+                                  <IonText className="centered-text">Earn Karma by helping people</IonText>
                               </IonCol>
-                              <IonCol><IonText className="description-text">
-                                  Get better Karma by helping out your community and earn Karmapoints for that. Helpout your local community and be a better person
-                              </IonText>
+                              <IonCol>
+                                  <IonText className="description-text">
+                                    Get better Karma by helping out your community and earn Karmapoints for that. Helpout your local community and be a better person
+                                  </IonText>
                               </IonCol>
                           </IonCol>
 
@@ -77,10 +78,15 @@ const ServicesTab = (props: ServicesTabProps) => {
           </IonRow>
 
           <IonRow>
-              <IonCol>
-                  <IonRow>
-
-                  </IonRow>
+              <IonCol className="next-to-map-container">
+                      <IonCol className="lottie-text-container">
+                          <IonText className="centered-text">See who needs help in your local community</IonText>
+                      </IonCol>
+                      <IonCol>
+                          <IonText className="description-text">
+                             View who in your local community needs help and earn your karma points by beeing a superhero
+                          </IonText>
+                      </IonCol>
               </IonCol>
               <IonRow className="map-container">
                   <MyMap/>

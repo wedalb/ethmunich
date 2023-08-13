@@ -5,7 +5,7 @@
 }
 
 .lottie-animation{
-    width: 200px;
+    width: 100%;
     padding-right: 5px;
 
 }
@@ -17,6 +17,7 @@
 }
 
 .lottie-text-container {
+    font-size: 3vw;
     display: flex;
     line-height: 1;
     align-items: center; /* Vertically center the text */
@@ -27,7 +28,7 @@
     margin-top: 10px;
     font-family: Helvetica;
     font-weight: bolder; /* Make text bold */
-    font-size: 1.5rem;   /* Make text big, adjust size as needed */
+    font-size: 5vw;  /* Make text big, adjust size as needed */
     text-align: center;
     background: linear-gradient(30deg, #de6c5b, #edc13e);
     background-clip: text;
@@ -37,8 +38,8 @@
 }
 
 .description-text{
-    font-size: 12px; /* Adjust as needed */
-    text-align: left; /* If you want the text to be centered */
+    font-size: 2.5vw; /* Adjust as needed */
+    text-align: center; /* If you want the text to be centered */
     display: block;
     line-height: 1.4em;    /* This is an example value. You might need to adjust */
     max-height: 4.2em;    /* 3 lines at 1.4em each */
@@ -48,11 +49,19 @@
 }
 
 .map-container {
+    margin-top: 15px;
     max-height: 250px;
-    max-width: 250px;
-    border-radius: 30px; /* This gives you the rounded corners */
-    overflow: hidden; /* This ensures the content doesn't spill out of the rounded rectangle */
+    border-radius: 30px;
+    overflow: hidden;
+}
 
+.next-to-map-container{
+    margin-top: 50px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .rectangle {

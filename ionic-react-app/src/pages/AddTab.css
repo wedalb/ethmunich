@@ -26,11 +26,9 @@
   font-weight: bolder;
   text-transform: none;
 }
-.add-service-explanation-row{
-
-}
 
 .add-service-centered-text-col {
+  font-size: 3vw;
   display: flex;
   align-items: center;    /* This vertically centers the child elements */
   justify-content: flex-start; /* This horizontally centers the child elements */
