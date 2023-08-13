@@ -1,0 +1,76 @@
+
+
+.card-container {
+    cursor: pointer;
+    padding: 16px; /* Add padding to the clickable container */
+    border-radius: 10px; /* Apply border radius to match card */
+    transition: background-color 0.3s ease; /* Add transition for smooth hover effect */
+}
+
+.card-container:hover {
+    background-color: rgba(0, 0, 0, 0.05); /* Add a slight background color on hover */
+}
+
+.image-overlay img {
+    width: 24px; /* Adjust the image size */
+    height: auto;
+    display: block;
+    margin: auto;
+    padding: 8px; /* Add some padding for spacing */
+    background: #2a2a2a;
+}
+.card-header {
+    display: flex;
+    align-items: center;
+}
+
+.card-header img {
+    max-width: 40px; /* Adjust image width as needed */
+    max-height: 40px; /* Adjust image height as needed */
+    margin-right: 16px; /* Add spacing between image and title/subtitle */
+}
+
+.profile-col {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.wallet-card-title{
+    font-size: 3rem; /* Adjust as needed */
+    font-weight: bolder;
+    padding-top : 10px;
+    padding-left: 10px;
+    background: linear-gradient(20deg, #de6c5b, #edc13e);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.wallet-card-subtitle {
+    --color: #ff9286;
+    font-size: 0.8rem; /* Adjust as needed */
+    font-weight: normal;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+.large-number {
+    font-size: 32px; /* Adjust font size as needed */
+    font-weight: bold; /* Adjust font weight as needed */
+    text-align: right;
+    /* Setting the background to a linear gradient */
+
+}
+.number-col {
+    display: flex;
+
+}
+
+.card-header {
+    display: flex;
+    justify-content: flex-end; /* Align content to the right */
+}
+
+.wallet-card{
+    border-radius: 15px;
+}
